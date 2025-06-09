@@ -4,7 +4,7 @@ export default function Home(){
     <main className="bg-[url(/resources/Background_1.png)] bg-cover h-screen flex justify-center items-center relative overflow-x-clip overflow-y-scroll">
       <img src = "/resources/Rainbow_Accent.png" className="absolute top-0 h-1 width:100% z-0"></img>
       <div className=" absolute w-screen top-1 flex flex-col items-start z-10 pl-5 pr-5">
-        <div className= "w-full  bg-indigo-950 flex justify-between items-center h-12 px-4">
+        <div className= "w-full bg-indigo-950 flex justify-start lg:justify-between items-center h-12 px-4 space-x-2 xl:space-x-4">
           <img src = "/resources/SPEEEX_Logo.png" className="h-5 sm:h-5"></img>
           <p className="hidden lg:flex space-x-6 text-xs text-white">About Us</p>
           <p className="hidden lg:flex space-x-6 text-xs text-white">Services</p>
@@ -12,7 +12,7 @@ export default function Home(){
           <p className="hidden lg:flex space-x-6 text-xs text-white">Insights</p>
           <p className="hidden lg:flex space-x-6 text-xs text-white">Contact Us</p>
           <button className="block lg:hidden p-2 text-white">☰</button>
-          <button className="ml-40 text-white bg-gradient-to-r from-gray-600/50 to-gray-700/50 rounded-4xl text-xs font-extralight px-6 sm:px-4 py-1 sm:py-2 ">JOIN US, BE BOLD!</button>
+          <button className=" text-white bg-gradient-to-r from-gray-600/50 to-gray-700/50 rounded-4xl text-xs font-extralight px-6 sm:px-4 py-1 sm:py-2">JOIN US, BE BOLD!</button>
         </div>
         <div>
           <img src="/resources/GPTW.png" className="h-25 mt-2 justify-self-start"></img>
