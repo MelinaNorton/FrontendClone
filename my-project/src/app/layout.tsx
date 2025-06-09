@@ -1,6 +1,18 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Helvetica from 'next/font/local'
+import localFont from 'next/font/local'
+
+/*const helvetica = localFont({
+  src:[
+    {
+      path: '/public/fonts/Helvetica.ttf',
+      weight: '400',
+      style: 'normal',
+    }
+  ]
+})*/
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
