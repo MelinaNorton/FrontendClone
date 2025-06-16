@@ -9,7 +9,6 @@ type imgProps = {
 }
 
 const ServiceImage: React.FC<imgProps> = (props:imgProps) => {
-    const hideOnMobile = props.number === '03' || props.number === '04'
     
   return (
     <div className={`relative lg:h-94 h-85 2xl:w-78 lg:w-70 w-78 flex justify-start items-start overflow-hidden`}>

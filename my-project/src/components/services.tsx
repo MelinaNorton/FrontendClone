@@ -1,5 +1,6 @@
 import ServiceImage from "./service_Image";
 import IndustryImage from "./industry_Image";
+import ICCImage from "./ICC_Image";
 
 const ServiceSection = () => {
     return (
@@ -36,13 +37,11 @@ const ServiceSection = () => {
                     <h1 className="lg:pr-10 lg:text-4xl text-xl font-bold 2xl:pr-10 pr-10 2xl:whitespace-nowrap">Industry Certification & Compliance</h1>
                     <p className="lg:text-lg 2xl:text-md text-sm font-extralight text-white/60 pb-5">At SPEEEX, we uphold stringent industry benchmarks to safeguard the security, quality, and durability of our services. Our commitment to excellence is reinforced by our compliance with globally recognized certifications accredited by TUV Rheinland GmbH.</p>
                 </div>
-                <div className="flex flex-row lg:justify-center 2xl:justify-center justify-start lg:gap-x-2 2xl:gap-x-8 gap-x-3">
-                    <img src = "/resources/certification.png" className=" 2xl:rounded-md lg:rounded-md rounded-sm lg:flex lg:h-23 2xl:h-24 h-20 2xl:w-50"></img>
-                    <img src = "/resources/certification.png" className=" 2xl:rounded-md lg:rounded-md rounded-sm lg:flex lg:h-23 2xl:h-24 h-20 2xl:w-50"></img>
-                    <img src = "/resources/certification.png" className=" 2xl:rounded-md lg:rounded-md rounded-sm lg:flex lg:h-23 2xl:h-24 h-20 2xl:w-50"></img>
-                    <img src = "/resources/certification.png" className=" hidden lg:flex 2xl:rounded-md lg:rounded-md rounded-sm lg:h-23 2xl:h-24 h-15 2xl:w-50"></img>
-                    <img src = "/resources/certification.png" className=" hidden lg:flex 2xl:rounded-md lg:rounded-md rounded-sm lg:h-23 2xl:h-24 h-15 2xl:w-50"></img>
-                    <img src = "/resources/certification.png" className=" hidden lg:flex 2xl:rounded-md lg:rounded-md rounded-sm lg:h-23 2xl:h-24 h-15 2xl:w-50"></img>
+                <div className="flex flex-row lg:justify-center 2xl:justify-center justify-start lg:gap-x-8 2xl:gap-x-8 gap-x-3">
+                    <ICCImage ICC_Bg="/resources/cert_rec.png" ICCSrc="/resources/cert_text_1.svg"></ICCImage>
+                    <ICCImage ICC_Bg="/resources/cert_rec.png" ICCSrc="/resources/cert_text_1.svg"></ICCImage>
+                    <ICCImage ICC_Bg="/resources/cert_rec.png" ICCSrc="/resources/cert_text_1.svg"></ICCImage>
+                    <ICCImage ICC_Bg="/resources/cert_rec.png" ICCSrc="/resources/cert_text_1.svg"></ICCImage>
                 </div>
             </div>
         </main>
