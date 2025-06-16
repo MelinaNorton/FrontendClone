@@ -1,22 +1,25 @@
+import ClientImage from "./clients_Image";
+
 const LocationsSection = () => {
-    let firstClients : string[] = [];
-    let secondClients : string[] = [];
-    let localClients : string[] = [];
+    let firstClients : string[] = ["sunrise", "yallo", "lebara", "liberty_global", "upc", "swype"];
+    let secondClients : string[] = ["mobilezone", "condair", "check24", "speeex", "alysian", "mobilezone"];
+    let localClients : string[] = ["prishtinamall", "procredit", "SEC", "europeanbank", "usaid", "helvetas"];
 
     for(let i=0; i<12; i++){
         if(i<6){
-            let temp = "/resources/client" + (i+1) + ".png";
-            firstClients.push(temp);
+            let temp = "/resources/" + firstClients[i] + ".svg";
+            firstClients[i]=temp;
+            console.log(temp);
         }
         else if(i>=6){
-            let temp = "/resources/client" + (i+1) + ".png";
-            secondClients.push(temp);
+            let temp = "/resources/" + secondClients[i-6] + ".svg";
+            secondClients[i-6]=temp;
         }
     }
 
     for(let i=0; i<6; i++){
         let temp ="/resources/localclient" + (i+1) + ".png";
-        localClients.push(temp);
+        localClients[i] = temp;
     }
 
     return(
@@ -41,41 +44,41 @@ const LocationsSection = () => {
                 <p className="lg:text-lg 2xl:text-md text-sm font-extralight text-white/60 pb-5"> Our dedication to achieving excellence is underscored by the accomplishments of our esteemed clientele. We have been privileged to provide services to a multitude of businesses across diverse industries and global markets, and we are gratified to have secured their trust and confidence.</p>
             </div>
                 <div className="flex flex-col gap-3">
-                    <div className="flex justify-start items-start">
+                    <div className="flex justify-start items-start 2xl:pl-0 lg:pl-0 pl-85">
                         <p className="self-start tracking-widest text-indigo-200 font-semibold">International Clients</p>
                     </div>
-                    <div className="flex flex-col gap-4">
-                        <div className="flex flex-row lg:justify-center 2xl:justify-center justify-start gap-x-4">
+                    <div className="flex flex-col gap-4 ">
+                        <div className="flex flex-row lg:justify-center 2xl:justify-center justify-start gap-x-2">
                             {firstClients.map( (src,i) =>(
-                                <img
+                                <ClientImage
                                     key={i}
-                                    src={src}
-                                    className="rounded-sm 2xl:h-22 lg:h-18 h-20"
+                                    logoSrc={src}
+                                    bgSrc="/resources/cert_rec.png"
                                 />
                             ))}
                         </div>
-                        <div className="flex-row justify-center gap-x-4 2xl:flex lg:flex hidden">
+                        <div className="flex-row justify-center gap-x-2 2xl:flex lg:flex hidden">
                             {secondClients.map( (src, i) =>(
-                                <img
+                                <ClientImage
                                     key={i}
-                                    src={src}
-                                    className=" rounded-sm 2xl:h-22 lg:h-18 h-20"
+                                    logoSrc={src}
+                                    bgSrc="/resources/cert_rec.png"
                                 />
                             ))}
                         </div>
                     </div>
                 </div>
                 <div className="flex flex-col gap-3">
-                    <div className="flex flex-row 2xl:gap-86 lg:gap-67 gap-23">
+                    <div className="flex flex-row 2xl:gap-86 lg:gap-70 gap-23">
                         <p className="self-start tracking-widest text-indigo-200 font-semibold">Local Clients</p>
                         <p className="self-start tracking-widest text-indigo-200 font-semibold">Local Partners</p>
                     </div>
-                    <div className="flex flex-row lg:justify-center 2xl:justify-center justify-start gap-x-4">
+                    <div className="flex flex-row lg:justify-center 2xl:justify-center justify-start gap-x-2">
                         {localClients.map((src,i) => (
-                            <img
+                            <ClientImage
                             key={i}
-                            src={src}
-                            className="rounded-b-sm 2xl:h-22 lg:h-18 h-20"
+                            logoSrc={src}
+                            bgSrc="/resources/cert_rec.png"
                             />
                         ))}
                     </div>
