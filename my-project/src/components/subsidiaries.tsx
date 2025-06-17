@@ -22,8 +22,8 @@ const SubsidiariesSection = () => {
                     <p className="lg:text-lg 2xl:text-md text-sm font-extralight text-white/60 ">Strategically diversified into three main sectors, each of which holds a leadership position within their respective industries. Our subsidiaries encompass: Software Engineering, Education, Media and Recruitment all operating under a unified vision of delivering unmatched quality and value. By leveraging our expertise across these sectors, we create synergies that drive innovation, excellence, and customer satisfaction.</p>
                 </div>
                 <div className="flex flex-row gap-3 items-center">
-                        <button className="lg:flex 2xl:flex hidden text-white bg-gradient-to-r from-gray-600/50 to-gray-700/50 rounded-full text-xl font-extralight lg:px-8 justify-center px-4 py-2 lg:py-4 w-15 lg:h-15 2xl:h-15 h-15">&larr;</button>
-                        <button className="lg:flex 2xl:flex hidden text-white bg-gradient-to-r from-gray-600/50 to-gray-700/50 rounded-full text-xl font-extralight lg:px-8 justify-center px-4 py-2 lg:py-4 w-15 lg:h-15 2xl:h-15 h-15">&rarr;</button>
+                        <button className="lg:flex 2xl:flex hidden text-white/50 transform-color hover:text-white duration-500 bg-gradient-to-r from-gray-600/50 to-gray-700/50 rounded-full text-xl font-extralight lg:px-8 justify-center px-4 py-2 lg:py-4 w-15 lg:h-15 2xl:h-15 h-15">&larr;</button>
+                        <button className="lg:flex 2xl:flex hidden text-white/50 transform-color hover:text-white duration-500 bg-gradient-to-r from-gray-600/50 to-gray-700/50 rounded-full text-xl font-extralight lg:px-8 justify-center px-4 py-2 lg:py-4 w-15 lg:h-15 2xl:h-15 h-15">&rarr;</button>
                  </div>
             </div>
             <div className="flex flex-row justify-center gap-x-8 2xl:pr-0 lg:pr-0 pr-8">
