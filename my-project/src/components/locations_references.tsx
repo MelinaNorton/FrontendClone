@@ -25,7 +25,7 @@ const LocationsSection = () => {
 
     return(
         <main className="bg-black bg-cover h-min-screen flex flex-col lg:gap-y-10 gap-y-10 justify-start items-center relative overflow-x-clip font-sans p-5">
-            <div className="flex lg:flex-row 2xl:flex-col md:flex-row flex-col gap-y-2 gap-x-20 lg:gap-x-10 2xl:gap-x-20 2xl:w-4/10 lg:w-69/70 w-95">
+            <div className="flex lg:flex-row 2xl:flex-col md:flex-row flex-col gap-y-2 gap-x-20 lg:gap-x-10 2xl:gap-x-20 2xl:w-4/10 lg:w-67/70 w-95">
                 <h1 className="lg:pr-10 lg:text-4xl text-xl font-bold 2xl:pr-10 pr-12">Our Locations</h1>
                 <div className="flex 2xl:flex-row lg:flex-row flex-col 2xl:gap-25 lg:gap-10">
                     <p className="lg:text-lg 2xl:text-md text-sm font-extralight text-white/60 pb-5">Strategically situated in the Republic of Kosova, South Eastern Europe, our location offers unparalleled advantages for companies seeking to optimize their operations through outsourcing. With a robust infrastructure and a skilled workforce, partnering with us enables businesses to capitalize on cost-effectiveness, access to a talented labor pool, and strategic geographic positioning for enhanced market reach in Europe and beyond.</p>
@@ -40,7 +40,7 @@ const LocationsSection = () => {
                 <LocationPic bgSrc="/resources/BlankLocation2.png" title="Prishtina Headquarters" desc="Located in the heart of Prishtina, the SPEEEX HQ presents the most preeminent offices, equipped with the latest technological advancements and modern amenities. Along with its astonishing voew of the city, this facility is a marvel of work environment." lm="LEARN MORE"/>
                 <img src = "/resources/Location3.png" className="rounded-xl lg:h-94 h-30 2xl:h-150"></img>
             </div>
-            <div className="flex lg:flex-row 2xl:flex-col md:flex-row flex-col gap-y-2 gap-x-20 lg:gap-x-10 2xl:gap-x-20 2xl:w-4/10 lg:w-69/70 w-95">
+            <div className="flex lg:flex-row 2xl:flex-col md:flex-row flex-col gap-y-2 gap-x-20 lg:gap-x-10 2xl:gap-x-20 2xl:w-4/10 lg:w-69/70 w-95 2xl:pt-15 lg:pt-15 pt-0">
                 <h1 className="lg:pr-10 lg:text-4xl text-xl font-bold 2xl:pr-10 pr-10">References</h1>
                 <p className="lg:text-lg 2xl:text-md text-sm font-extralight text-white/60 pb-5"> Our dedication to achieving excellence is underscored by the accomplishments of our esteemed clientele. We have been privileged to provide services to a multitude of businesses across diverse industries and global markets, and we are gratified to have secured their trust and confidence.</p>
             </div>

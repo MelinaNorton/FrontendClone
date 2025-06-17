@@ -1,20 +1,21 @@
 import SubsidiaryImage from "./subsidiary_Image";
+import InsightsImage from "./insights_Pic";
 
 const SubsidiariesSection = () => {
     let subsidiaries : string[] = [];
-    let insights : string[] = [];
+    let insights : string[] = ["insightsImage1", "insightsImage2", "insightsImage3"];
 
     for(let i=0; i<5; i++){
         let temp = "/resources/subsidiary" + (i+1) + ".png";
         subsidiaries.push(temp);
     }
 
-    for(let i=0; i<4; i++){
-        let temp = "/resources/insights" + (i+1) + ".jpg";
-        insights.push(temp);
+    for(let i=0; i<3; i++){
+        let temp = "/resources/" + insights[i] + ".png";
+        insights[i] = temp;
     }
     return(
-        <main className="bg-black bg-cover h-min-screen flex flex-col lg:gap-y-10 gap-y-10 justify-start items-center relative overflow-x-clip font-sans">
+        <main className="bg-black bg-cover h-min-screen flex flex-col lg:gap-y-10 gap-y-4 justify-start items-center relative overflow-x-clip font-sans">
             <div className="flex lg:flex-row 2xl:flex-row md:flex-row flex-col gap-y-2 gap-x-20 lg:gap-x-10 2xl:gap-x-20 2xl:w-4/10 lg:w-67/70 w-95">
                 <div className="flex 2xl:flex-col lg:flex-row flex-col 2xl:gap-5 gap-2">
                     <h1 className="lg:pr-10 lg:text-4xl text-xl font-bold 2xl:pr-10 pr-10">Our Subsidiaries</h1>
@@ -34,19 +35,19 @@ const SubsidiariesSection = () => {
                 <div className="flex flex-col gap-3 2xl:w-9/15 items-start justify-center lg:w-300 w-95">
                     <h1 className="lg:pr-10 tracking-wider lg:text-4xl text-2xl font-bold 2xl:pr-10 pr-8">Insights</h1>
                     <p className="lg:text-lg 2xl:text-md text-sm font-extralight text-white/60">Gain insights into our industry-leading practices and dive deep into our informative publications, including insightful articles, case studies, and industry reports that exemplify our commitment to excellence in BPO services.</p>
-                    <div className="flex flex-row 2xl:w-11/19 items-start gap-3">
-                        <button className=" text-white bg-gradient-to-r from-gray-600/50 to-gray-700/50 rounded-4xl text-xs lg:text-lg font-extralight px-6 sm:px-4 py-1 sm:py-2">BLOGS</button>
-                        <button className=" text-white bg-gradient-to-r from-gray-600/50 to-gray-700/50 rounded-4xl text-xs lg:whitespace-normal 2xl:whitespace-normal whitespace-nowrap lg:text-lg font-extralight px-6 sm:px-4 py-1 sm:py-2">CASE STUDIES</button>
-                        <button className=" text-white bg-gradient-to-r from-gray-600/50 to-gray-700/50 rounded-4xl text-xs lg:whitespace-normal 2xl:whitespace-normal whitespace-nowrap lg:text-lg font-extralight px-6 sm:px-4 py-1 sm:py-2">WHITE PAPERS</button>
+                    <div className="flex flex-row 2xl:w-11/19 lg:w-11/19 w-100 items-start gap-3">
+                        <button className=" text-white bg-gradient-to-r flex from-gray-600/50 to-gray-700/50 rounded-4xl text-xs lg:text-lg font-extralight px-4 sm:px-6 py-3 sm:py-2">BLOGS</button>
+                        <button className=" text-white bg-gradient-to-r flex from-gray-600/50 to-gray-700/50 rounded-4xl text-xs lg:whitespace-normal 2xl:whitespace-normal whitespace-nowrap lg:text-lg font-extralight px-4 sm:px-6 py-3 sm:py-2">CASE STUDIES</button>
+                        <button className=" text-white bg-gradient-to-r flex from-gray-600/50 to-gray-700/50 rounded-4xl text-xs lg:whitespace-normal 2xl:whitespace-normal whitespace-nowrap lg:text-lg font-extralight px-4 sm:px-6 py-3 sm:py-2">WHITE PAPERS</button>
                     </div>
                 </div>
             </div>
-            <div className="flex flex-row justify-center gap-x-5 2xl:pl-0 lg:pl-0 pl-90">
+            <div className="flex flex-row justify-center gap-x-5 2xl:pl-0 lg:pl-95 pl-185">
                 {insights.map((src, i) =>(
-                    <img
+                    <InsightsImage
                         key={i}
-                        src={src}
-                        className="flex-none rounded-lg lg:h-90 2xl:h-110 h-50 2xl:w-160 w-90 lg:w-130"
+                        bgSrc={src}
+                        title="The President of the National Council of Switzerland, Mr. Eric Nussbaumer visits SPEEEX"
                     />
                 ))}
             </div>
