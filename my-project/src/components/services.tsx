@@ -14,7 +14,7 @@ const ServiceSection = () => {
                     <button className="flex text-white bg-gradient-to-r from-gray-600/50 to-gray-700/50 rounded-4xl text-sm font-extralight lg:px-8 px-2 py-2 lg:py-4 w-30 lg:w-40">LEARN MORE</button>
                 </div>
             </div>
-            <div className="flex flex-row 2xl:justify-center lg:justify-center justify-start 2xl:pl-0 lg:pl-0 pl-218 lg:gap-x-8 2xl:gap-x-8 gap-x-0 2xl:pb-10 lg:pb-10 pb-0">
+            <div className="flex flex-row 2xl:justify-center lg:justify-center justify-start 2xl:pl-0 lg:pl-0 pl-218 lg:gap-x-8 2xl:gap-x-8 gap-x-0 2xl:pb-15 lg:pb-15 pb-0">
                     <ServiceImage src="/resources/DCE.png" number="01" title="Digital Customer Experience" desc="Crafted with deep team expertise and powered by cutting-edge AI applications, our bespoke DCX delivers anticipatory service that consistently exceeds customer expectations." lm="LEARN MORE"/>
                     <ServiceImage src="/resources/Programming.png" number="02" title="Software Engineering Solutions" desc="Levaraging deep team expertise alongside cutting-edge advancements, our custom software solutions anticipate and exceed user expectations with proactive service." lm="LEARN MORE"/>
                     <ServiceImage src="/resources/MDMS.png" number="03" title="Media & Digital Marketing Solutions" desc="Levaraging comprehensive media insights and cutting-edge digital marketing advancements, our solutions anticipate trends and consistently delivery exceptional results." lm="LEARN MORE"/>
