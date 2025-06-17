@@ -1,5 +1,9 @@
+'use client'
+import React from 'react';
+import { useRouter } from 'next/navigation'
 
 const Navbar = () => {
+    const router = useRouter();
     return(
         //"sm:w-3/6 md:w-full lg:w-7xl 2xl:w-8/12 flex justify-center lg:justify-between items-center h-20 lg:px-50 2xl:px-50 space-x-2 lg:top-2 2xl:top-2 fixed z-50"
         <main>
@@ -16,7 +20,7 @@ const Navbar = () => {
                                 <p className="hidden lg:flex md:flex space-x-6 text-xs lg:text-lg text-white hover:text-white/50 duration-500">Contact Us</p>
                             </div>
                             <button className="lg:hidden md:hidden 2xl:hidden flex text-white text-3xl lg:pl-0 pr-0">☰</button>
-                            <button className="hidden lg:flex text-white bg-gradient-to-r from-gray-600/50 to-gray-700/50 hover:bg-gray-600/50 rounded-4xl text-xs lg:text-lg font-extralight px-6 sm:px-4 py-1 sm:py-2">JOIN US, BE BOLD!</button>
+                            <button className="hidden lg:flex text-white bg-gradient-to-r from-gray-600/50 to-gray-700/50 hover:bg-gray-600/50 rounded-4xl text-xs lg:text-lg font-extralight px-6 sm:px-4 py-1 sm:py-2" onClick={ ()=> router.push('./application')}>JOIN US, BE BOLD!</button>
                         </div>
                     </div>
                 </div>

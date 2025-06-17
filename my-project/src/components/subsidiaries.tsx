@@ -1,9 +1,13 @@
+'use client'
+import React from 'react'
+import { useState } from 'react';
 import SubsidiaryImage from "./subsidiary_Image";
 import InsightsImage from "./insights_Pic";
 
 const SubsidiariesSection = () => {
     let subsidiaries : string[] = [];
     let insights : string[] = ["insightsImage1", "insightsImage2", "insightsImage3"];
+    const [selectedInsight, setSelectedInsight] = useState("1");
 
     for(let i=0; i<5; i++){
         let temp = "/resources/subsidiary" + (i+1) + ".png";
