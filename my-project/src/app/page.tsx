@@ -11,7 +11,7 @@ export default function Home(){
     <div>
       <Navbar/>
       <div className="flex flex-col lg:gap-y-15 2xl:gap-15 gap-0 bg-black">
-      <div className="bg-black flex flex-col 2xl:gap-35 lg:gap-35 gap-4">
+      <div className="bg-black flex flex-col 2xl:gap-35 lg:gap-35 md:gap-15 gap-4">
         <HomeSection/> 
         <ServiceSection/>
       </div>
