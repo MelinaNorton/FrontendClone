@@ -13,14 +13,14 @@ const Navbar = () => {
                         <div className= "flex flex-row items-center w-[100%vw] 2xl:gap-50 lg:gap-30 gap-25 justify-center">
                             <img src = "/resources/SPEEEX_Logo.png" className="h-5 lg:h-8 2xl:h-8"></img>
                             <div className="flex flex-row 2xl: lg: gap-15">
-                                <p className="hidden  lg:flex md:flex space-x-6 text-xs lg:text-lg text-white transition-colors hover:text-white/50 duration-500">About Us</p>
-                                <p className="hidden lg:flex md:flex space-x-6 text-xs lg:text-lg text-white hover:text-white/50 duration-500">Services</p>
-                                <p className="hidden lg:flex md:flex space-x-6 text-xs lg:text-lg text-white hover:text-white/50 duration-500">Industries</p>
-                                <p className="hidden lg:flex  md:flex space-x-6 text-xs lg:text-lg text-white hover:text-white/50 duration-500">Insights</p>
-                                <p className="hidden lg:flex md:flex space-x-6 text-xs lg:text-lg text-white hover:text-white/50 duration-500">Contact Us</p>
+                                <p className="hidden  lg:flex md:flex space-x-6 text-xs lg:text-lg text-white transition-colors hover:text-white/50 duration-500 hover:cursor-pointer">About Us</p>
+                                <p className="hidden lg:flex md:flex space-x-6 text-xs lg:text-lg text-white hover:text-white/50 duration-500 hover:cursor-pointer">Services</p>
+                                <p className="hidden lg:flex md:flex space-x-6 text-xs lg:text-lg text-white hover:text-white/50 duration-500 hover:cursor-pointer">Industries</p>
+                                <p className="hidden lg:flex  md:flex space-x-6 text-xs lg:text-lg text-white hover:text-white/50 duration-500 hover:cursor-pointer">Insights</p>
+                                <p className="hidden lg:flex md:flex space-x-6 text-xs lg:text-lg text-white hover:text-white/50 duration-500 hover:cursor-pointer">Contact Us</p>
                             </div>
-                            <button className="lg:hidden md:hidden 2xl:hidden flex text-white text-3xl lg:pl-0 pr-0">☰</button>
-                            <button className="hidden lg:flex text-white bg-gradient-to-r from-gray-600/50 to-gray-700/50 hover:bg-gray-600/50 rounded-4xl text-xs lg:text-lg font-extralight px-6 sm:px-4 py-1 sm:py-2" onClick={ ()=> router.push('./application')}>JOIN US, BE BOLD!</button>
+                            <button className="lg:hidden md:hidden 2xl:hidden flex text-white text-3xl lg:pl-0 pr-0 hover:cursor-pointer">☰</button>
+                            <button className="hidden lg:flex text-white bg-gradient-to-r from-gray-600/50 to-gray-700/50 hover:bg-gray-600/50 rounded-4xl text-xs lg:text-lg font-extralight px-6 sm:px-4 py-1 sm:py-2 hover:cursor-pointer" onClick={ ()=> router.push('./application')}>JOIN US, BE BOLD!</button>
                         </div>
                     </div>
                 </div>
