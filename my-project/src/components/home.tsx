@@ -12,14 +12,14 @@ const HomeSection = () => {
             <div className="width:100% lg:w-29/30 2xl:w-7xl w-100 px-4">
               <h1 className="font-sans tracking-wider text-white font-semibold lg:text-5xl text-3xl 2xl:text-5xl text-left mt-20 sm:mt-40 pb-3 lg:pt-40 2xl:pt-80">Empowering brands through CX and digital transformation excellence</h1>
               <p className="font-sans tracking-wider text-white font-thin lg:text-lg text-sm text-left pb-4">Founded in 2016 and based in Southeastern Europe, Republic of Kosovo, we specialize in integrating human expertise with AI-driven capabilities via our smart shoring concept. Our innovative approach to customer experience outsourcing ensures unparalleled support for your brand's CX journey.</p>
-              <button className=" text-white bg-gradient-to-r from-gray-800/70 to-gray-600/70 hover:bg-gray-600/70 hover:cursor-pointer rounded-4xl text-xs font-extralight px-6 py-2 tracking-wider lg:text-lg">Learn More</button>
+              <button className=" text-white bg-gradient-to-r from-gray-800/70 to-gray-600/70 hover:bg-gray-600/70 hover:cursor-pointer rounded-4xl text-xs font-extralight px-6 py-2 tracking-wider lg:text-lg">LEARN MORE</button>
           </div>
           <div className="flex flex-row items-start justify-between lg:gap-200 2xl:gap-740 width:100% z-20">
             <div className="flex flex-col items-start space-y-1">
               <p className=" font-sans tracking-wider text-gray-400 font-thin text-xs text-left hidden lg:flex">CONTACT US</p>
               <img src = "/resources/mail.png" className=" h-12 mt-2 hidden lg:flex hover:cursor-pointer"></img>
           </div>
-          <div className="flex flex-col items-start justify-between space-x-1 2xl:pr-0 lg:pr-0 pr-25">
+          <div className="flex flex-col items-start justify-between space-x-1 2xl:pr-0 lg:pr-0 pr-28">
               <p className="font-sans tracking-wider text-gray-400 font-thin lg:text-xs">OUR SUBSIDIARIES</p>
               <div className="flex flex-row 2xl:space-x-2 lg:space-x-5 space-x-2">
                 <div className="relative group flex-col gap-y-1">

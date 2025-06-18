@@ -69,7 +69,7 @@ const LocationsSection = () => {
                         </div>
                     </div>
                 </div>
-                <div className="flex flex-col gap-3 2xl:pl-0 lg:pl-0 pl-12">
+                <div className="flex flex-col gap-3 2xl:pl-0 lg:pl-0 pl-10">
                     <div className="flex flex-row 2xl:gap-86 lg:gap-70 gap-80">
                         <p className="self-start tracking-widest text-indigo-200 font-semibold 2xl:pl-2 lg:pl-2 pl-0">Local Clients</p>
                         <p className="self-start tracking-widest text-indigo-200 font-semibold">Local Partners</p>

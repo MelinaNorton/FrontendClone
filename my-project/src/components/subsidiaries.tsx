@@ -46,7 +46,7 @@ const SubsidiariesSection = () => {
                     </div>
                 </div>
             </div>
-            <div className="flex flex-row justify-center gap-x-5 2xl:pl-0 lg:pl-95 pl-185">
+            <div className="flex flex-row justify-center gap-x-5 2xl:pl-0 lg:pl-95 pl-187">
                 {insights.map((src, i) =>(
                     <InsightsImage
                         key={i}

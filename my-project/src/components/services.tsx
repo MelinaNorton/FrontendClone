@@ -11,7 +11,7 @@ const ServiceSection = () => {
                 <div className="flex flex-col lg:w-5xl">
                     <p className="lg:text-xl font-semibold text-white pb-5">End-to-end tech innovation for optimized performance.</p>
                     <p className="lg:text-lg 2xl:text-md text-sm font-extralight text-white/60 pb-5">Explore new horizons and unleash your full potential. With our comprehensive solution ecosystem, we conceptualize, develop, and manage your future organization to give you a competitive advantage.</p>
-                    <button className="flex text-white bg-gradient-to-r from-gray-600/50 to-gray-700/50 hover:bg-gray-700/50 rounded-4xl text-sm font-extralight lg:px-8 px-2 py-2 lg:py-4 w-30 lg:w-40 hover:cursor-pointer">LEARN MORE</button>
+                    <button className=" text-white bg-gradient-to-r from-gray-800/70 to-gray-600/70 hover:bg-gray-600/70 hover:cursor-pointer rounded-4xl text-xs font-extralight px-6 py-2 tracking-wider lg:text-lg w-36 2xl:w-36 lg:w-45">LEARN MORE</button>
                 </div>
             </div>
             <div className="flex flex-row 2xl:justify-center lg:justify-center justify-start 2xl:pl-0 lg:pl-0 pl-218 lg:gap-x-8 2xl:gap-x-8 gap-x-0 2xl:pb-15 lg:pb-15 pb-0">
@@ -28,7 +28,7 @@ const ServiceSection = () => {
                     <button className="hidden lg:flex 2xl:flex text-white/50 transition-color hover:text-white duration-500 bg-gradient-to-r from-gray-600/50 to-gray-700/50 rounded-full text-xl font-extralight lg:px-8 justify-center px-4 py-2 lg:py-4 w-15 lg:h-15 hover:cursor-pointer">&rarr;</button>
                 </div>
             </div>
-            <div className="flex flex-row lg:justify-start 2xl:justify-center justify-start gap-x-5 2xl:pl-0 lg:pl-0 pl-148 2xl:pb-15 lg:pb-15 pb-0">
+            <div className="flex flex-row lg:justify-start 2xl:justify-center justify-start gap-x-5 2xl:pl-0 lg:pl-0 pl-150 2xl:pb-15 lg:pb-15 pb-0">
                     <IndustryImage src="/resources/telecom.png" alt="/resources/industry_alt1.png" title="Telecommunications" desc="Leading the way of Telecommunications" lm="LEARN MORE" num="01"/>
                     <IndustryImage src="/resources/shopping.png" alt="/resources/industry_alt2.png" title="Retail & E-Commerce" desc="Elevating Shopping Experiences" lm="LEARN MORE" num="02"/>
                     <IndustryImage src="/resources/governance.png" alt="/resources/industry_alt3.png" title="Government" desc="Empowering Governance Through Efficient Service" lm="LEARN MORE" num="03"/>
@@ -38,7 +38,7 @@ const ServiceSection = () => {
                     <h1 className="lg:pr-10 lg:text-4xl text-xl font-bold 2xl:pr-10 pr-10 2xl:whitespace-nowrap flex auto lg:basis-2/5">Industry Certification & Compliance</h1>
                     <p className="lg:text-lg 2xl:text-md text-sm font-extralight text-white/60 pb-5 flex auto lg:basis-3/5">At SPEEEX, we uphold stringent industry benchmarks to safeguard the security, quality, and durability of our services. Our commitment to excellence is reinforced by our compliance with globally recognized certifications accredited by TUV Rheinland GmbH.</p>
                 </div>
-                <div className="flex flex-row lg:justify-center 2xl:justify-center justify-start items-start lg:gap-x-8 2xl:gap-x-8 gap-x-3 2xl:pl-0 lg:pl-0 pl-73">
+                <div className="flex flex-row lg:justify-center 2xl:justify-center justify-start items-start lg:gap-x-8 2xl:gap-x-8 gap-x-3 2xl:pl-0 lg:pl-0 pl-75">
                     <ICCImage ICC_Bg="/resources/cert_rec.png" ICCSrc="/resources/cert_text_1.svg"></ICCImage>
                     <ICCImage ICC_Bg="/resources/cert_rec.png" ICCSrc="/resources/cert_text_1.svg"></ICCImage>
                     <ICCImage ICC_Bg="/resources/cert_rec.png" ICCSrc="/resources/cert_text_1.svg"></ICCImage>
