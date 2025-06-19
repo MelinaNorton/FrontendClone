@@ -31,7 +31,7 @@ const LocationsSection = () => {
 
     return(
         <main className="bg-black bg-cover h-min-screen flex flex-col lg:gap-y-10 gap-y-10 justify-start items-center relative overflow-x-clip font-sans p-4">
-            <div className="flex lg:flex-col 2xl:flex-col md:flex-col flex-col gap-y-2 gap-x-20 lg:gap-x-10 w-full border border-red-500">
+            <div className="flex md:flex-col flex-col gap-y-2 gap-x-20 lg:gap-x-10 w-full border border-red-500">
                 <h1 className="lg:pr-10 lg:text-4xl md:text-3xl text-xl font-bold pb-2">Our Locations</h1>
                 <div className="flex 2xl:flex-row lg:flex-row flex-col 2xl:gap-25 lg:gap-10">
                     <p className="lg:text-lg 2xl:text-md text-sm font-extralight text-white/60 pb-5">Strategically situated in the Republic of Kosova, South Eastern Europe, our location offers unparalleled advantages for companies seeking to optimize their operations through outsourcing. With a robust infrastructure and a skilled workforce, partnering with us enables businesses to capitalize on cost-effectiveness, access to a talented labor pool, and strategic geographic positioning for enhanced market reach in Europe and beyond.</p>
@@ -80,7 +80,7 @@ const LocationsSection = () => {
                         <p className="self-start tracking-widest text-indigo-200 font-semibold">Local Clients</p>
                         <p className="self-start tracking-widest text-indigo-200 font-semibold 2xl:flex lg:flex md:hidden hidden">International Partners</p>
                     </div>
-                    <div className="flex flex-col 2xl:gap-4 2 gap-2 border border-green-500 max-w-none w-max">
+                    <div className="flex flex-col lg:flex-row 2xl:gap-4 2 gap-2 border border-green-500 max-w-none w-max">
                         <div className="flex flex-row 2xl:justify-center justify-start 2xl:gap-x-4 lg:gap-x-2 gap-x-4 pr-2">
                             {localClients.map((src,i) => (
                                 <ClientImage
