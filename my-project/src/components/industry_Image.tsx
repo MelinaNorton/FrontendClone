@@ -15,7 +15,7 @@ const IndustryImage: React.FC<imgProps> = (props: imgProps) => {
     const oneLine = props.title == "Retail & E-Commerce"
 
     return(
-        <div className="relative lg:h-70 h-52 2xl:w-110 flex-none  lg:w-98 w-78 flex justify-start items-start overflow-hidden hover:cursor-pointer">
+        <div className="relative lg:h-70 h-52 2xl:w-106 flex-none  lg:w-98 w-78 flex justify-start items-start overflow-hidden hover:cursor-pointer">
             <div className="group">
                 <img
                 src = {props.src}
