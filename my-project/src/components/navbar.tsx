@@ -9,9 +9,9 @@ const Navbar = () => {
         <main>
             <div className="flex flex-col bg-gray-300/13 backdrop-blur-sm lg:h-25 md:h-17 2xl:h-25 h-18 w-screen fixed z-40 justify-center items-center">
                     <img src = "/resources/Rainbow_Accent.png" className="absolute top-0 w-full z-0"></img>
-                        <div className= "flex flex-row items-center justify-between lg:justify-between w-screen">
-                                <img src = "/resources/SPEEEX_Logo.png" className="h-5 lg:h-8 2xl:h-8 absolute lg:relative lg:flex"></img>
-                            <div className="hidden lg:flex flex-row justify-between items-center lg:w-3xl w-2xl">
+                        <div className= "flex flex-row items-center justify-between lg:justify-between w-screen lg:pr-6 2xl:w-[40vw] w-full">
+                                <img src = "/resources/SPEEEX_Logo.png" className="h-5 lg:h-8 2xl:h-8 absolute lg:relative lg:flex pl-0 lg:pl-2"></img>
+                            <div className="hidden lg:flex flex-row justify-between items-center 2xl:w-2xl lg:w-xl w-2xl">
                                 <p className="hidden  lg:flex md:hidden text-xs lg:text-lg text-white transition-colors hover:text-white/50 duration-500 hover:cursor-pointer whitespace-nowrap">About Us</p>
                                 <p className="hidden lg:flex md:hidden text-xs lg:text-lg text-white hover:text-white/50 duration-500 hover:cursor-pointer">Services</p>
                                 <p className="hidden lg:flex md:hidden text-xs lg:text-lg text-white hover:text-white/50 duration-500 hover:cursor-pointer">Industries</p>
