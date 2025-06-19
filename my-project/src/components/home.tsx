@@ -8,15 +8,15 @@ const HomeSection = () => {
           <img src="/resources/GPTW.png" className="h-20 lg:h-30 mt-2"></img>
         </div>
       <img src = "/resources/SPEEEX_BG_Rainbow.png" className="max-w-none absolute 2xl:top-40 lg:top-40 top-40 lg:w-[100vw]  w-[180vw]"></img>
-      <div className="z-30 flex-col inset-0 flex justify-center items-center border border-red-500 w-screen">
+      <div className="z-30 flex-col inset-0 flex justify-center items-center  -red-500 w-screen">
             <div className="p-4 lg:p-6">
               <h1 className="font-sans tracking-wider text-white font-semibold lg:text-5xl md:text-5xl text-3xl 2xl:text-5xl text-left pb-4">Empowering brands through CX and digital transformation excellence</h1>
               <p className="font-sans tracking-wider text-white font-thin 2xl:text-lg lg:text-lg md:text-lg text-sm text-left pb-4">Founded in 2016 and based in Southeastern Europe, Republic of Kosovo, we specialize in integrating human expertise with AI-driven capabilities via our smart shoring concept. Our innovative approach to customer experience outsourcing ensures unparalleled support for your brand's CX journey.</p>
               <button className=" text-white bg-gradient-to-r from-gray-800/70 to-gray-600/70 hover:bg-gray-600/70 hover:cursor-pointer rounded-4xl text-xs font-extralight px-6 py-2 tracking-wider lg:text-lg">LEARN MORE</button>
           </div>
         </div>
-        <div className="flex flex-row justify-between w-screen p-4 z-20 border border-blue-500">
-          <div className="hidden lg:flex flex-col items-start space-y-1 border border-green-500 margin-left:auto">
+        <div className="flex flex-row justify-between w-screen p-4 z-20  -blue-500">
+          <div className="hidden lg:flex flex-col items-start space-y-1  -green-500 margin-left:auto">
               <p className=" font-sans tracking-wider text-gray-400 font-thin text-xs text-left">CONTACT US</p>
               <img src = "/resources/mail.png" className=" h-12 mt-2 hidden lg:flex hover:cursor-pointer"></img>
           </div>

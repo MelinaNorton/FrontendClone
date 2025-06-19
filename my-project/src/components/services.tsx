@@ -14,7 +14,7 @@ const ServiceSection = () => {
                     <button className=" text-white bg-gradient-to-r from-gray-800/70 to-gray-600/70 hover:bg-gray-600/70 hover:cursor-pointer rounded-4xl text-xs font-extralight px-6 py-2 tracking-wider lg:text-lg w-36 2xl:w-36 lg:w-45">LEARN MORE</button>
                 </div>
             </div>
-            <div className="flex flex-row justify-start lg:justify-between lg:items-center items-start 2xl:justify-center 2xl:items-center max-w-none border border-red-500 lg:w-full overflow-clip space-x-8 ">
+            <div className="flex flex-row justify-start lg:justify-between lg:items-center items-start 2xl:justify-center 2xl:items-center max-w-none lg:w-full overflow-clip space-x-8 ">
                     <ServiceImage src="/resources/DCE.png" number="01" title="Digital Customer Experience" desc="Crafted with deep team expertise and powered by cutting-edge AI applications, our bespoke DCX delivers anticipatory service that consistently exceeds customer expectations." lm="LEARN MORE"/>
                     <ServiceImage src="/resources/Programming.png" number="02" title="Software Engineering Solutions" desc="Levaraging deep team expertise alongside cutting-edge advancements, our custom software solutions anticipate and exceed user expectations with proactive service." lm="LEARN MORE"/>
                     <ServiceImage src="/resources/MDMS.png" number="03" title="Media & Digital Marketing Solutions" desc="Levaraging comprehensive media insights and cutting-edge digital marketing advancements, our solutions anticipate trends and consistently delivery exceptional results." lm="LEARN MORE"/>
@@ -28,7 +28,7 @@ const ServiceSection = () => {
                     <button className="hidden lg:flex 2xl:flex text-white/50 transition-color hover:text-white duration-500 bg-gradient-to-r from-gray-600/50 to-gray-700/50 rounded-full text-xl font-extralight lg:px-8 justify-center px-4 py-2 lg:py-4 w-15 lg:h-15 hover:cursor-pointer">&rarr;</button>
                 </div>
             </div>
-            <div className="flex flex-row justify-start lg:justify-between lg:items-center items-start 2xl:justify-center 2xl:items-center max-w-none border border-red-500 lg:w-full overflow-clip space-x-8">
+            <div className="flex flex-row justify-start lg:justify-between lg:items-center items-start 2xl:justify-center 2xl:items-center max-w-none lg:w-full overflow-clip space-x-8">
                     <IndustryImage src="/resources/telecom.png" alt="/resources/industry_alt1.png" title="Telecommunications" desc="Leading the way of Telecommunications" lm="LEARN MORE" num="01"/>
                     <IndustryImage src="/resources/shopping.png" alt="/resources/industry_alt2.png" title="Retail & E-Commerce" desc="Elevating Shopping Experiences" lm="LEARN MORE" num="02"/>
                     <IndustryImage src="/resources/governance.png" alt="/resources/industry_alt3.png" title="Government" desc="Empowering Governance Through Efficient Service" lm="LEARN MORE" num="03"/>

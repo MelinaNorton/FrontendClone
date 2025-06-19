@@ -19,8 +19,8 @@ const SubsidiariesSection = () => {
         insights[i] = temp;
     }
     return(
-        <main className="bg-black bg-cover h-min-screen flex flex-col lg:gap-y-10 gap-y-4 justify-start items-center relative overflow-x-clip font-sans p-4 w-screen">
-            <div className="flex 2xl:flex-col flex-col gap-y-2 gap-x-20 lg:gap-x-10 w-full border border-red-500 2xl:justify-center 2xl:w-[40vw]">
+        <main className="bg-black bg-cover h-min-screen flex flex-col lg:gap-y-10 gap-y-4 justify-start items-center relative font-sans p-4 ">
+            <div className="flex 2xl:flex-col flex-col gap-y-2 gap-x-20 lg:gap-x-10 w-full 2xl:justify-center 2xl:w-[40vw]">
                 <h1 className="lg:pr-10 lg:text-4xl md:text-3xl text-xl font-bold pb-2">Our Subsidiaries</h1>
                 <div className="flex 2xl:flex-row lg:flex-row flex-col 2xl:gap-25 lg:gap-10">
                     <p className="lg:text-lg 2xl:text-md text-sm font-extralight text-white/60 ">Strategically diversified into three main sectors, each of which holds a leadership position within their respective industries. Our subsidiaries encompass: Software Engineering, Education, Media and Recruitment all operating under a unified vision of delivering unmatched quality and value. By leveraging our expertise across these sectors, we create synergies that drive innovation, excellence, and customer satisfaction.</p>
@@ -30,13 +30,13 @@ const SubsidiariesSection = () => {
                     </div>
                  </div>
             </div>
-            <div className="flex flex-row justify-start lg:justify-between lg:items-center items-start 2xl:justify-center 2xl:items-center 2xl:w-[40vw] max-w-none border border-red-500 lg:w-full space-x-8 w-full">
+            <div className="flex flex-row justify-start lg:justify-between lg:items-center items-start 2xl:justify-center 2xl:items-center 2xl:w-[40vw] max-w-none lg:w-full space-x-8 w-full">
                 <SubsidiaryImage titleSrc="/resources/MEDIENHAUS.svg" descSrc="/resources/WCDEPL.svg" tagline="Express Creativity" desc="Tailored marketing strategies that generate awareness, engage customers, and drive conversions" lm="LEARN MORE"/>
                 <SubsidiaryImage titleSrc="/resources/SPEEXEDUCATION.svg" descSrc="/resources/VJB.svg" tagline="Learn Together" desc="Delivering tailored language and BPO training programs that empower professionals to communicate effectively and excel in global business environments" lm="LEARN MORE"/>
                 <SubsidiaryImage titleSrc="/resources/RHENUM.svg" descSrc="/resources/CodeSnippet.svg" tagline="Coding and Beyond" desc="The forefront of technological innovation, offering software development and programming services that cater to the unique needs of businesses" lm="LEARN MORE"/>
             </div>
            
-                <div className="flex flex-col gap-3 items-start justify-center w-full border border-red-500 2xl:justify-center 2xl:w-[40vw]">
+                <div className="flex flex-col gap-3 items-start justify-center w-full 2xl:justify-center 2xl:w-[40vw]">
                     <h1 className="lg:pr-10 tracking-wider lg:text-4xl text-2xl font-bold 2xl:pr-10 pr-8">Insights</h1>
                     <p className="lg:text-lg 2xl:text-md text-sm font-extralight text-white/60">Gain insights into our industry-leading practices and dive deep into our informative publications, including insightful articles, case studies, and industry reports that exemplify our commitment to excellence in BPO services.</p>
                     <div className="flex flex-row lg:w-11/19 w-100 items-start gap-3">
@@ -46,7 +46,7 @@ const SubsidiariesSection = () => {
                     </div>
                 </div>
             
-            <div className="flex flex-row justify-start lg:justify-between lg:items-center items-start max-w-none border border-red-500 lg:w-full space-x-8 w-full 2xl:justify-center 2xl:items-center 2xl:w-[40vw]">
+            <div className="flex flex-row justify-start lg:justify-between lg:items-center items-start max-w-none lg:w-full space-x-8 w-full 2xl:justify-center 2xl:items-center 2xl:w-[40vw]">
                 {insights.map((src, i) =>(
                     <InsightsImage
                         key={i}
