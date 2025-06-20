@@ -21,10 +21,10 @@ const DropdownMenu:React.FC<dropdownProps> = (props : dropdownProps) => {
         setChoiceIcon(choiceIcon);
     }
     return(
-        <div className="flex flex-col w-90" onClick={()=> setIsHidden(!isHidden)}>
+        <div className="flex flex-col md:w-90 w-80" onClick={()=> setIsHidden(!isHidden)}>
             <div className="relative border border-blue-500">
                 <h1 className="text-lg text-white">{props.label}</h1>
-                <div className="bg-gray-300/20 w-90 h-15 flex flex-row justify-between items-center rounded-md hover:bg-gray-400/80 p-1 hover:cursor-pointer">
+                <div className="bg-gray-300/20 md:w-90 w-80 h-15 flex flex-row justify-between items-center rounded-md hover:bg-gray-400/80 p-1 hover:cursor-pointer">
                     <div className="flex flex-row justify-start items-center space-x-5">
                         {choiceIcon !="" ? <img src={"/resources/" + choiceIcon} className="h-5"></img> : <p></p>}
                         <p className="text-md color-white">{choice}</p>

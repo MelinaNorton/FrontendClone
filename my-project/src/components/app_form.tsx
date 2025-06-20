@@ -3,6 +3,7 @@ import DropdownMenu from "./dropdown";
 import OpenPosition from "./openPositions";
 import { useState } from "react";
 import TextInput from "./textInput";
+import UploadButton from "./uploadDoc";
 
 const AppForm = () => {
     const [isSelected, setIsSelected] = useState(false)
@@ -23,7 +24,7 @@ const AppForm = () => {
                 <div className="flex flex-col items-start justify-center space-y-2 w-full">
                     <h1 className="text-white text-2xl tracking-wider font-bold">Languages</h1>
                     <p className="text-white/50 text-md tracking-wider">What language are you applying for?</p>
-                    <div className="flex md:flex-row flex-col justify-start items-end w-full md:justify-between border border-green-500">
+                    <div className="flex md:flex-row flex-col justify-start items-start w-full md:justify-between md:items-end border border-green-500">
                         <DropdownMenu label="What language are you applying for?" dd_icon="▼" dd_num={4} dd_text={['German', 'French', 'Italian', 'English']} hidden={isHidden} dd_icons={['germanflag.png', 'frenchflag.jpg', 'italianflag.jpg', 'britishflag.png']} button_icon=""/>
                         <DropdownMenu label="What language level are you at?" dd_icon="▼" dd_num={6} dd_text={['A1', 'A2', 'B1', 'B2', 'C1', 'C2']} hidden={isHidden} dd_icons={['', '', '', '', '', '']} button_icon=""/>
                         <DropdownMenu label="Do you speak any other languages?(optional)" dd_icon="▼" dd_num={5} dd_text={['German','Italian', 'French', 'English', 'Ukranian']} hidden={isHidden} dd_icons={['', '', '', '', '', '']} button_icon=""/>
@@ -58,6 +59,9 @@ const AppForm = () => {
                         <TextInput label="Email" required={true} isDatePicker={false}/>
                     </div>
                 </div>
+            </div>
+            <div className="flex flex-col md:flex-row justify-start items-center w-full border border-red-500">
+                <UploadButton label="Upload Document" upload_icon="paperclip.svg"/>
             </div>
         </div>
     );
