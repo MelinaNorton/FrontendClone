@@ -45,8 +45,8 @@ const AppForm = () => {
             name: '',
             surname: '',
             language: '',
-            appliedLang: '',
             xtraLang: '',
+            appliedLang: '',
             location: '',
             diaspora: '',
             birthday: '',
@@ -86,7 +86,7 @@ const AppForm = () => {
                 control={control}
                 render = {({field}) =>(
                     <div className="flex flex-col space-y-2">
-                        {errors.language && <p className="text-white text-md tracking-wider font-bold">Required Field</p>}
+                        {errors.language && <p className="text-white text-md tracking-wider font-bold">{errors.language.message}</p>}
                         <DropdownMenu label="" dd_icon="▼" dd_icon_up="▲" dd_num={5} dd_text={['Albanian','German', 'French', 'Italian', 'English']} hidden={isHidden} dd_icons={['albanianflag.jpg','germanflag.png', 'frenchflag.jpg', 'italianflag.jpg', 'britishflag.png']} button_icon="" required={false} onChange={field.onChange}/>
                     </div>
                 )}
@@ -108,7 +108,7 @@ const AppForm = () => {
                             control={control}
                             render = {({field}) =>(
                                 <div className="flex flex-col space-y-2">
-                                    {errors.appliedLang && <p className="text-white tracking-wider text-md font-bold">Required Field</p>}
+                                    {errors.appliedLang && <p className="text-white tracking-wider text-md font-bold">{errors.appliedLang.message}</p>}
                                      <DropdownMenu label="What language are you applying for?" dd_icon="▼" dd_icon_up="▲" dd_num={4} dd_text={['German', 'French', 'Italian', 'English']} hidden={isHidden} dd_icons={['germanflag.png', 'frenchflag.jpg', 'italianflag.jpg', 'britishflag.png']} button_icon="" required={true} onChange={field.onChange}/>
                                 </div>
                             )}
@@ -118,7 +118,7 @@ const AppForm = () => {
                             control={control}
                             render = {({field}) =>(
                                 <div className="flex flex-col space-y-2">
-                                    {errors.level && <p className="text-white tracking-wider text-md font-bold">Required Field</p>}
+                                    {errors.level && <p className="text-white tracking-wider text-md font-bold">{errors.level.message}</p>}
                                      <DropdownMenu label="What language level are you at?" dd_icon="▼" dd_icon_up="▲" dd_num={6} dd_text={['A1', 'A2', 'B1', 'B2', 'C1', 'C2']} hidden={isHidden} dd_icons={['', '', '', '', '', '']} button_icon="" required={true} onChange={field.onChange}/>
                                 </div>
                             )}
@@ -128,8 +128,8 @@ const AppForm = () => {
                             control={control}
                             render = {({field}) =>(
                                 <div className="flex flex-col space-y-2">
-                                    {errors.xtraLang && <p className="text-white tracking-wider text-md font-bold">Required Field</p>}
-                                    <DropdownMenu label="Do you speak any other languages?(optional)" dd_icon="▼" dd_icon_up="▲" dd_num={5} dd_text={['German','Italian', 'French', 'English', 'Ukranian']} hidden={isHidden} dd_icons={['', '', '', '', '', '']} button_icon="" required={true} onChange={field.onChange}/>
+                                    {errors.xtraLang && <p className="text-white tracking-wider text-md font-bold">{errors.xtraLang.message}</p>}
+                                    <DropdownMenu label="Do you speak any other languages?(optional)" dd_icon="▼" dd_icon_up="▲" dd_num={5} dd_text={['German','Italian', 'French', 'English', 'Ukranian']} hidden={isHidden} dd_icons={['', '', '', '', '', '']} button_icon="" required={false} onChange={field.onChange}/>
                                 </div>
                             )}
                         ></Controller>
@@ -147,7 +147,7 @@ const AppForm = () => {
                             control={control}
                             render = {({field}) =>(
                                 <div className="flex flex-col space-y-2">
-                                    {errors.location && <p className="text-white tracting-wider text-md font-bold">Required Field</p>}
+                                    {errors.location && <p className="text-white tracting-wider text-md font-bold">{errors.location.message}</p>}
                                     <DropdownMenu label="Your preferred location to work?" dd_icon="▼" dd_icon_up="▲" dd_num={4} dd_text={['Prishtine HQ', 'Vushtrri', 'Ferizaj', 'Prizren']} hidden={isHidden} dd_icons={['germanflag.png', 'frenchflag.jpg', 'italianflag.jpg', 'britishflag.png']} button_icon="" required={true} onChange={field.onChange}/>
                                 </div>
                             )}
@@ -164,7 +164,7 @@ const AppForm = () => {
                             control={control}
                             render = {({field}) =>(
                                 <div className="flex flex-col space-y-2">
-                                    {errors.name && <p className="text-white tracking-wider text-md font-bold">Required Field</p>}
+                                    {errors.name && <p className="text-white tracking-wider text-md font-bold">{errors.name.message}</p>}
                                     <TextInput label="Name" required={true} isDatePicker={false} onChange={field.onChange}/>
                                 </div>
                             )}
@@ -174,7 +174,7 @@ const AppForm = () => {
                             control={control}
                             render = {({field}) =>(
                                 <div className="flex flex-col space-y-2">
-                                    {errors.surname && <p className="text-white tracking-wider text-md font-bold">Required Field</p>}
+                                    {errors.surname && <p className="text-white tracking-wider text-md font-bold">{errors.surname.message}</p>}
                                     <TextInput label="Surname" required={true} isDatePicker={false} onChange={field.onChange}/>
                                 </div>
                             )}
@@ -184,7 +184,7 @@ const AppForm = () => {
                             control={control}
                             render = {({field}) =>(
                                 <div className="flex flex-col space-y-2">
-                                    {errors.birthday && <p className="text-white text-md tracking-wider font-bold">Required Field</p>}
+                                    {errors.birthday && <p className="text-white text-md tracking-wider font-bold">{errors.birthday.message}</p>}
                                     <TextInput label="Birthdate" required={true} isDatePicker={true} onChange={field.onChange}/>
                                 </div>
                             )}
@@ -196,7 +196,7 @@ const AppForm = () => {
                             control={control}
                             render = {({field}) =>(
                                 <div className="flex flex-col space-y-2">
-                                    {errors.idnum && <p className="text-white text-md tracking-wider font-bold">Required Field</p>}
+                                    {errors.idnum && <p className="text-white text-md tracking-wider font-bold">{errors.idnum.message}</p>}
                                     <TextInput label="Identification Number" required={true} isDatePicker={false} onChange={field.onChange}/>
                                 </div>
                             )}
@@ -206,7 +206,7 @@ const AppForm = () => {
                             control={control}
                             render = {({field}) =>(
                                 <div className="flex flex-col space-y-2">
-                                    {errors.residence && <p className="text-white text-md tracking-wider font-bold">Required Field</p>}
+                                    {errors.residence && <p className="text-white text-md tracking-wider font-bold">{errors.residence.message}</p>}
                                     <TextInput label="Residence" required={true} isDatePicker={false} onChange={field.onChange}/>
                                 </div>
                             )}
@@ -216,7 +216,7 @@ const AppForm = () => {
                             control={control}
                             render = {({field}) =>(
                                 <div className="flex flex-col space-y-2">
-                                    {errors.diaspora && <p className="text-white text-md tracking-wider font-bold">Required Field</p>}
+                                    {errors.diaspora && <p className="text-white text-md tracking-wider font-bold">{errors.diaspora.message}</p>}
                                      <DropdownMenu label="Diaspora?" dd_icon="▼" dd_icon_up="▲" dd_num={2} dd_text={['true', 'false']} hidden={isHidden} dd_icons={['', '']} button_icon="" required={true} onChange={field.onChange}/>
                                 </div>
                             )}
@@ -228,7 +228,7 @@ const AppForm = () => {
                             control={control}
                             render = {({field}) =>(
                                 <div className="flex flex-col space-y-2">
-                                    {errors.diaspora && <p className="text-white text-md tracking-wider font-bold">Required Field</p>}
+                                    {errors.phonenum && <p className="text-white text-md tracking-wider font-bold">{errors.phonenum.message}</p>}
                                     <TextInput label="Phone Number" required={true} isDatePicker={false} onChange={field.onChange}/>
                                 </div>
                             )}
@@ -238,7 +238,7 @@ const AppForm = () => {
                             control={control}
                             render = {({field}) =>(
                                 <div className="flex flex-col space-y-2">
-                                    {errors.diaspora && <p className="text-white text-md tracking-wider font-bold">Required Field</p>}
+                                    {errors.email && <p className="text-white text-md tracking-wider font-bold">{errors.email.message}</p>}
                                     <TextInput label="Email" required={true} isDatePicker={false} onChange={field.onChange}/>
                                 </div>
                             )}
@@ -261,7 +261,7 @@ const AppForm = () => {
                     control={control}
                     render = {({field}) =>(
                         <div className="flex flex-col space-y-2">
-                            {errors.checked && <p className="text-white text-md tracking-wider font-bold">Agree to Terms</p>}
+                            {errors.checked && <p className="text-white text-md tracking-wider font-bold">{errors.checked.message}</p>}
                             <CheckBox label="" onChange={e => field.onChange(e)} checked={field.value}/>
                         </div>
                     )}

@@ -1,5 +1,5 @@
 'use client'
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 type dropdownProps = {
     label : string,
@@ -16,16 +16,22 @@ type dropdownProps = {
 
 const DropdownMenu:React.FC<dropdownProps> = (props : dropdownProps) => {
     const [isHidden, setIsHidden] = useState(props.hidden);
-    const [choice, setChoice] = useState(props.button_icon)
     const [choiceIcon, setChoiceIcon] = useState("")
     const [focused, setFocused] = useState(false)
+    const startChoice = props.required? '' : ' '
+    const [choice, setChoice] = useState(startChoice)
 
+    useEffect(() =>{
+        {!props.required ? props.onChange(choice) : console.log('continue')}
+    }),[props.required, choice, props.onChange]
+    
     const setChoiceData = (choiceText:string, choiceIcon:string) =>{
         setChoice(choiceText);
         props.onChange(choiceText);
         setChoiceIcon(choiceIcon);
         setFocused(false)
     }
+
     return(
         <div className="flex flex-col 2xl:w-110 lg:w-95 w-full" onClick={()=> setIsHidden(!isHidden)}>
             <div className="relative">
