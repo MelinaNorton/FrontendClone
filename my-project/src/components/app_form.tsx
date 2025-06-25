@@ -262,7 +262,7 @@ const AppForm = () => {
                     render = {({field}) =>(
                         <div className="flex flex-col space-y-2">
                             {errors.checked && <p className="text-white text-md tracking-wider font-bold">Agree to Terms</p>}
-                            <CheckBox label="" onChange={e => field.onChange(field.onChange)} checked={field.value}/>
+                            <CheckBox label="" onChange={e => field.onChange(e)} checked={field.value}/>
                         </div>
                     )}
                 ></Controller>
