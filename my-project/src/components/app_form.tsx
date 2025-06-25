@@ -24,7 +24,9 @@ export type applicationInputs = {
     idnum : string,
     residence : string,
     phonenum : string,
-    email : string
+    email : string,
+    checked : boolean,
+    uploaded : boolean
 }
 
 const AppForm = () => {
@@ -51,7 +53,9 @@ const AppForm = () => {
             idnum: '',
             residence: '',
             phonenum: '',
-            email: ''
+            email: '',
+            checked: false,
+            uploaded: false
         },
     });
 
@@ -68,6 +72,8 @@ const AppForm = () => {
         console.log(data.residence)
         console.log(data.phonenum)
         console.log(data.email)
+        console.log(data.checked)
+        console.log(data.email)
         reset()
     }
 
@@ -79,7 +85,10 @@ const AppForm = () => {
                 name="language"
                 control={control}
                 render = {({field}) =>(
-                    <DropdownMenu label="" dd_icon="▼" dd_icon_up="▲" dd_num={5} dd_text={['Albanian','German', 'French', 'Italian', 'English']} hidden={isHidden} dd_icons={['albanianflag.jpg','germanflag.png', 'frenchflag.jpg', 'italianflag.jpg', 'britishflag.png']} button_icon="" required={false} onChange={field.onChange}/>
+                    <div className="flex flex-col space-y-2">
+                        {errors.language && <p className="text-white text-md tracking-wider font-bold">Required Field</p>}
+                        <DropdownMenu label="" dd_icon="▼" dd_icon_up="▲" dd_num={5} dd_text={['Albanian','German', 'French', 'Italian', 'English']} hidden={isHidden} dd_icons={['albanianflag.jpg','germanflag.png', 'frenchflag.jpg', 'italianflag.jpg', 'britishflag.png']} button_icon="" required={false} onChange={field.onChange}/>
+                    </div>
                 )}
                 ></Controller>
             </div>
@@ -98,21 +107,30 @@ const AppForm = () => {
                             name="appliedLang"
                             control={control}
                             render = {({field}) =>(
-                                <DropdownMenu label="What language are you applying for?" dd_icon="▼" dd_icon_up="▲" dd_num={4} dd_text={['German', 'French', 'Italian', 'English']} hidden={isHidden} dd_icons={['germanflag.png', 'frenchflag.jpg', 'italianflag.jpg', 'britishflag.png']} button_icon="" required={true} onChange={field.onChange}/>
+                                <div className="flex flex-col space-y-2">
+                                    {errors.appliedLang && <p className="text-white tracking-wider text-md font-bold">Required Field</p>}
+                                     <DropdownMenu label="What language are you applying for?" dd_icon="▼" dd_icon_up="▲" dd_num={4} dd_text={['German', 'French', 'Italian', 'English']} hidden={isHidden} dd_icons={['germanflag.png', 'frenchflag.jpg', 'italianflag.jpg', 'britishflag.png']} button_icon="" required={true} onChange={field.onChange}/>
+                                </div>
                             )}
                         ></Controller>
                         <Controller
                             name="level"
                             control={control}
                             render = {({field}) =>(
-                                <DropdownMenu label="What language level are you at?" dd_icon="▼" dd_icon_up="▲" dd_num={6} dd_text={['A1', 'A2', 'B1', 'B2', 'C1', 'C2']} hidden={isHidden} dd_icons={['', '', '', '', '', '']} button_icon="" required={true} onChange={field.onChange}/>
+                                <div className="flex flex-col space-y-2">
+                                    {errors.level && <p className="text-white tracking-wider text-md font-bold">Required Field</p>}
+                                     <DropdownMenu label="What language level are you at?" dd_icon="▼" dd_icon_up="▲" dd_num={6} dd_text={['A1', 'A2', 'B1', 'B2', 'C1', 'C2']} hidden={isHidden} dd_icons={['', '', '', '', '', '']} button_icon="" required={true} onChange={field.onChange}/>
+                                </div>
                             )}
                         ></Controller>
                         <Controller
                             name="xtraLang"
                             control={control}
                             render = {({field}) =>(
-                                <DropdownMenu label="Do you speak any other languages?(optional)" dd_icon="▼" dd_icon_up="▲" dd_num={5} dd_text={['German','Italian', 'French', 'English', 'Ukranian']} hidden={isHidden} dd_icons={['', '', '', '', '', '']} button_icon="" required={true} onChange={field.onChange}/>
+                                <div className="flex flex-col space-y-2">
+                                    {errors.xtraLang && <p className="text-white tracking-wider text-md font-bold">Required Field</p>}
+                                    <DropdownMenu label="Do you speak any other languages?(optional)" dd_icon="▼" dd_icon_up="▲" dd_num={5} dd_text={['German','Italian', 'French', 'English', 'Ukranian']} hidden={isHidden} dd_icons={['', '', '', '', '', '']} button_icon="" required={true} onChange={field.onChange}/>
+                                </div>
                             )}
                         ></Controller>
                     </div>
@@ -128,7 +146,10 @@ const AppForm = () => {
                             name="location"
                             control={control}
                             render = {({field}) =>(
-                                <DropdownMenu label="Your preferred location to work?" dd_icon="▼" dd_icon_up="▲" dd_num={4} dd_text={['Prishtine HQ', 'Vushtrri', 'Ferizaj', 'Prizren']} hidden={isHidden} dd_icons={['germanflag.png', 'frenchflag.jpg', 'italianflag.jpg', 'britishflag.png']} button_icon="" required={true} onChange={field.onChange}/>
+                                <div className="flex flex-col space-y-2">
+                                    {errors.location && <p className="text-white tracting-wider text-md font-bold">Required Field</p>}
+                                    <DropdownMenu label="Your preferred location to work?" dd_icon="▼" dd_icon_up="▲" dd_num={4} dd_text={['Prishtine HQ', 'Vushtrri', 'Ferizaj', 'Prizren']} hidden={isHidden} dd_icons={['germanflag.png', 'frenchflag.jpg', 'italianflag.jpg', 'britishflag.png']} button_icon="" required={true} onChange={field.onChange}/>
+                                </div>
                             )}
                         ></Controller>
                     </div>
@@ -142,21 +163,30 @@ const AppForm = () => {
                             name="name"
                             control={control}
                             render = {({field}) =>(
-                                <TextInput label="Name" required={true} isDatePicker={false} onChange={field.onChange}/>
+                                <div className="flex flex-col space-y-2">
+                                    {errors.name && <p className="text-white tracking-wider text-md font-bold">Required Field</p>}
+                                    <TextInput label="Name" required={true} isDatePicker={false} onChange={field.onChange}/>
+                                </div>
                             )}
                         ></Controller>
                         <Controller
                             name="surname"
                             control={control}
                             render = {({field}) =>(
-                                <TextInput label="Surname" required={true} isDatePicker={false} onChange={field.onChange}/>
+                                <div className="flex flex-col space-y-2">
+                                    {errors.surname && <p className="text-white tracking-wider text-md font-bold">Required Field</p>}
+                                    <TextInput label="Surname" required={true} isDatePicker={false} onChange={field.onChange}/>
+                                </div>
                             )}
                         ></Controller>
                         <Controller
                             name="birthday"
                             control={control}
                             render = {({field}) =>(
-                                <TextInput label="Birthdate" required={true} isDatePicker={true} onChange={field.onChange}/>
+                                <div className="flex flex-col space-y-2">
+                                    {errors.birthday && <p className="text-white text-md tracking-wider font-bold">Required Field</p>}
+                                    <TextInput label="Birthdate" required={true} isDatePicker={true} onChange={field.onChange}/>
+                                </div>
                             )}
                         ></Controller>
                     </div>
@@ -165,21 +195,30 @@ const AppForm = () => {
                             name="idnum"
                             control={control}
                             render = {({field}) =>(
-                                <TextInput label="Identification Number" required={true} isDatePicker={false} onChange={field.onChange}/>
+                                <div className="flex flex-col space-y-2">
+                                    {errors.idnum && <p className="text-white text-md tracking-wider font-bold">Required Field</p>}
+                                    <TextInput label="Identification Number" required={true} isDatePicker={false} onChange={field.onChange}/>
+                                </div>
                             )}
                         ></Controller>
                         <Controller
                             name="residence"
                             control={control}
                             render = {({field}) =>(
-                                <TextInput label="Residence" required={true} isDatePicker={false} onChange={field.onChange}/>
+                                <div className="flex flex-col space-y-2">
+                                    {errors.residence && <p className="text-white text-md tracking-wider font-bold">Required Field</p>}
+                                    <TextInput label="Residence" required={true} isDatePicker={false} onChange={field.onChange}/>
+                                </div>
                             )}
                         ></Controller>
                         <Controller
                             name="diaspora"
                             control={control}
                             render = {({field}) =>(
-                                 <DropdownMenu label="Diaspora?" dd_icon="▼" dd_icon_up="▲" dd_num={2} dd_text={['true', 'false']} hidden={isHidden} dd_icons={['', '']} button_icon="" required={true} onChange={field.onChange}/>
+                                <div className="flex flex-col space-y-2">
+                                    {errors.diaspora && <p className="text-white text-md tracking-wider font-bold">Required Field</p>}
+                                     <DropdownMenu label="Diaspora?" dd_icon="▼" dd_icon_up="▲" dd_num={2} dd_text={['true', 'false']} hidden={isHidden} dd_icons={['', '']} button_icon="" required={true} onChange={field.onChange}/>
+                                </div>
                             )}
                         ></Controller>
                     </div>
@@ -188,14 +227,20 @@ const AppForm = () => {
                             name="phonenum"
                             control={control}
                             render = {({field}) =>(
-                                <TextInput label="Phone Number" required={true} isDatePicker={false} onChange={field.onChange}/>
+                                <div className="flex flex-col space-y-2">
+                                    {errors.diaspora && <p className="text-white text-md tracking-wider font-bold">Required Field</p>}
+                                    <TextInput label="Phone Number" required={true} isDatePicker={false} onChange={field.onChange}/>
+                                </div>
                             )}
                         ></Controller>
                         <Controller
                             name="email"
                             control={control}
                             render = {({field}) =>(
-                                <TextInput label="Email" required={true} isDatePicker={false} onChange={field.onChange}/>
+                                <div className="flex flex-col space-y-2">
+                                    {errors.diaspora && <p className="text-white text-md tracking-wider font-bold">Required Field</p>}
+                                    <TextInput label="Email" required={true} isDatePicker={false} onChange={field.onChange}/>
+                                </div>
                             )}
                         ></Controller>
                     </div>
@@ -211,7 +256,16 @@ const AppForm = () => {
                 </div>
             </div>
             <div className="flex flex-col md:flex-row justify-start items-start w-full 2xl:w-3/7 space-x-5">
-                <CheckBox label=""/>
+                <Controller
+                    name="checked"
+                    control={control}
+                    render = {({field}) =>(
+                        <div className="flex flex-col space-y-2">
+                            {errors.checked && <p className="text-white text-md tracking-wider font-bold">Agree to Terms</p>}
+                            <CheckBox label="" onChange={e => field.onChange(field.onChange)} checked={field.value}/>
+                        </div>
+                    )}
+                ></Controller>
                 <p className="text-white text-md tracking-wider text-start">I agree to the terms of service *</p>
             </div>
             <div className="flex flex-col w-full items-start justify-center">

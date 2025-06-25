@@ -13,5 +13,7 @@ export const TextInputSchema = yup.object({
     idnum: yup.string().required().max(20),
     residence: yup.string().required().max(20),
     phonenum: yup.string().required().max(20),
-    email: yup.string().required().max(20)
+    email: yup.string().required().max(20),
+    checked: yup.boolean().required(),
+    uploaded: yup.boolean().required()
 })
