@@ -9,7 +9,9 @@ type dropdownProps = {
     dd_text : string[],
     dd_icons : string[],
     hidden :boolean,
-    button_icon : string
+    button_icon : string,
+    required : boolean,
+    onChange : (newval:string)=>void,
 }
 
 const DropdownMenu:React.FC<dropdownProps> = (props : dropdownProps) => {
@@ -17,22 +19,23 @@ const DropdownMenu:React.FC<dropdownProps> = (props : dropdownProps) => {
     const [choice, setChoice] = useState(props.button_icon)
     const [choiceIcon, setChoiceIcon] = useState("")
     const [focused, setFocused] = useState(false)
-    
+
     const setChoiceData = (choiceText:string, choiceIcon:string) =>{
         setChoice(choiceText);
+        props.onChange(choiceText);
         setChoiceIcon(choiceIcon);
         setFocused(false)
     }
     return(
         <div className="flex flex-col 2xl:w-110 lg:w-95 w-full" onClick={()=> setIsHidden(!isHidden)}>
             <div className="relative">
-                <h1 className="text-lg text-white">{props.label}</h1>
-                <div className="bg-gray-300/20 2xl:w-110 lg:w-95 w-full h-15 flex flex-row justify-between items-center rounded-md hover:bg-gray-400/40 p-1 hover:cursor-pointer" onClick={()=>setFocused(!focused)}>
+                {props.required ? <h1 className="text-lg text-white">{props.label+ " *"}</h1> : <h1 className="text-lg text-white">{props.label}</h1>}
+                <div className="bg-gray-300/20 2xl:w-110 lg:w-95 w-full h-15 flex flex-row justify-between items-center rounded-md hover:bg-gray-400/40 p-3 hover:cursor-pointer" onClick={()=>setFocused(!focused)}>
                     <div className="flex flex-row justify-start items-center space-x-5">
                         {choiceIcon !="" ? <img src={"/resources/" + choiceIcon} className="h-5"></img> : <p></p>}
-                        <p className="text-md color-white">{choice}</p>
+                        <p className="text-md text-white">{choice}</p>
                     </div>
-                    <p className="text-xs color-white">{focused ? props.dd_icon_up : props.dd_icon}</p>
+                    <p className="text-xs text-white">{focused ? props.dd_icon_up : props.dd_icon}</p>
                 </div>  
                     <div className={`absolute ${isHidden ? "h-auto" : " h-auto flex flex-col items-center justify-center w-full"} transition-transform duration-200 ${isHidden ? "scale-y-0 origin-top w-full" : "scale-y-100 origin-top border border-yellow-500"} z-20 rounded-t-lg rounded-b-lg`}>
                         {props.dd_text.map((textcontent, i, key) =>(
