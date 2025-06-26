@@ -21,9 +21,9 @@ const DropdownMenu:React.FC<dropdownProps> = (props : dropdownProps) => {
     const startChoice = props.required? '' : ' '
     const [choice, setChoice] = useState(startChoice)
 
-    useEffect(() =>{
+    /*useEffect(() =>{
         {!props.required ? props.onChange(choice) : console.log('continue')}
-    }),[props.required, choice, props.onChange]
+    }),[props.required, choice, props.onChange]*/
 
     const setChoiceData = (choiceText:string, choiceIcon:string) =>{
         setChoice(choiceText);

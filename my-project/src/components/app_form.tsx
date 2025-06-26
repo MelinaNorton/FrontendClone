@@ -11,9 +11,11 @@ import { SubmitHandler } from "react-hook-form";
 import { Controller } from "react-hook-form";
 import { TextInputSchema } from "@/schemas/textInputSchema";
 import DDFormField from "./ddformfield";
+import TFFormField from "./tfformfield";
 
 export type applicationInputs = {
     name : string,
+    fname : string,
     surname : string,
     language : string,
     appliedLang : string,
@@ -46,6 +48,7 @@ const AppForm = () => {
         reValidateMode: "onSubmit",
         defaultValues: {
             name: '',
+            fname: '',
             surname: '',
             language: '',
             xtraLang: '',
@@ -63,8 +66,9 @@ const AppForm = () => {
     });
 
     const onSubmit: SubmitHandler<applicationInputs> = (data) => {
+        console.log("SUBMITTED")
         console.log(errors)
-        console.log(data.name)
+        console.log(data.fname)
         console.log(data.surname)
         console.log(data.language)
         console.log(data.appliedLang)
@@ -117,81 +121,18 @@ const AppForm = () => {
                 <div className="flex flex-col items-start justify-center space-y-8 w-full">
                     <h1 className="text-white text-2xl tracking-wider font-bold">Personal data</h1>
                     <div className="flex lg:flex-row flex-col justify-start w-full md:justify-between space-y-10">
-                        <Controller
-                            name="name"
-                            control={control}
-                            render = {({field}) =>(
-                                <div className="flex flex-col space-y-2">
-                                    {errors.name && <p className="text-white tracking-wider text-md font-bold">{errors.name.message}</p>}
-                                    <TextInput label="Name" required={true} isDatePicker={false} onChange={field.onChange}/>
-                                </div>
-                            )}
-                        ></Controller>
-                        <Controller
-                            name="surname"
-                            control={control}
-                            render = {({field}) =>(
-                                <div className="flex flex-col space-y-2">
-                                    {errors.surname && <p className="text-white tracking-wider text-md font-bold">{errors.surname.message}</p>}
-                                    <TextInput label="Surname" required={true} isDatePicker={false} onChange={field.onChange}/>
-                                </div>
-                            )}
-                        ></Controller>
-                        <Controller
-                            name="birthday"
-                            control={control}
-                            render = {({field}) =>(
-                                <div className="flex flex-col space-y-2">
-                                    {errors.birthday && <p className="text-white text-md tracking-wider font-bold">{errors.birthday.message}</p>}
-                                    <TextInput label="Birthdate" required={true} isDatePicker={true} onChange={field.onChange}/>
-                                </div>
-                            )}
-                        ></Controller>
+                        <TFFormField name="name" control={control} label="Name"/>
+                        <TFFormField name="surname" control={control} label="Surname"/>
+                        <TFFormField name="birthday" control={control} label="Birthdate" isDatePicker={true}/>
                     </div>
                     <div className="flex lg:flex-row flex-col justify-start w-full  md:justify-between space-y-10">
-                        <Controller
-                            name="idnum"
-                            control={control}
-                            render = {({field}) =>(
-                                <div className="flex flex-col space-y-2">
-                                    {errors.idnum && <p className="text-white text-md tracking-wider font-bold">{errors.idnum.message}</p>}
-                                    <TextInput label="Identification Number" required={true} isDatePicker={false} onChange={field.onChange}/>
-                                </div>
-                            )}
-                        ></Controller>
-                        <Controller
-                            name="residence"
-                            control={control}
-                            render = {({field}) =>(
-                                <div className="flex flex-col space-y-2">
-                                    {errors.residence && <p className="text-white text-md tracking-wider font-bold">{errors.residence.message}</p>}
-                                    <TextInput label="Residence" required={true} isDatePicker={false} onChange={field.onChange}/>
-                                </div>
-                            )}
-                        ></Controller>
+                        <TFFormField name="idnum" control={control} label="Identification Number"/>
+                        <TFFormField name="residence" control={control} label="Residence"/>
                         <DDFormField name="diaspora" control={control} label="Diaspora?" dd_num={2} dd_text={['true', 'false']}/>
                     </div>
                     <div className="flex lg:flex-row flex-col justify-start md:justify-start w-full 2xl:w-3/7  space-x-11 2xl:space-x-17 space-y-10">
-                        <Controller
-                            name="phonenum"
-                            control={control}
-                            render = {({field}) =>(
-                                <div className="flex flex-col space-y-2">
-                                    {errors.phonenum && <p className="text-white text-md tracking-wider font-bold">{errors.phonenum.message}</p>}
-                                    <TextInput label="Phone Number" required={true} isDatePicker={false} onChange={field.onChange}/>
-                                </div>
-                            )}
-                        ></Controller>
-                        <Controller
-                            name="email"
-                            control={control}
-                            render = {({field}) =>(
-                                <div className="flex flex-col space-y-2">
-                                    {errors.email && <p className="text-white text-md tracking-wider font-bold">{errors.email.message}</p>}
-                                    <TextInput label="Email" required={true} isDatePicker={false} onChange={field.onChange}/>
-                                </div>
-                            )}
-                        ></Controller>
+                        <TFFormField name="phonenum" control={control} label="Phone Number"/>
+                        <TFFormField name="email" control={control} label="Email"/>
                     </div>
                 </div>
             </div>

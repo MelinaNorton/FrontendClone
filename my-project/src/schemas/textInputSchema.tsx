@@ -1,7 +1,8 @@
 import * as yup from 'yup'
 
 export const TextInputSchema = yup.object({
-    name: yup.string().required("name is required").max(20),
+    name: yup.string().required(),
+    fname: yup.string().required("name is required").max(20),
     surname: yup.string().required("surname is required").max(20),
     language: yup.string().required("language is required").max(20),
     xtraLang: yup.string().required().max(20),
