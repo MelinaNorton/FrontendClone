@@ -15,6 +15,7 @@ export const TextInputSchema = yup.object({
     phonenum: yup.string().required("phone number is required").max(20), //phone number format validatin
     email: yup.string().required("email is required").max(20), //check if its in email format
     checked: yup.boolean().required("please check box"),
-    uploaded: yup.boolean().required("please upload document")
+    uploaded: yup.boolean().required("please upload document"),
+    position: yup.string().required()
 })
 

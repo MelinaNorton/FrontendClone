@@ -12,6 +12,8 @@ import { Controller } from "react-hook-form";
 import { TextInputSchema } from "@/schemas/textInputSchema";
 import DDFormField from "./ddformfield";
 import TFFormField from "./tfformfield";
+import OPFormField from "./openposform";
+
 
 export type applicationInputs = {
     fname : string,
@@ -29,12 +31,17 @@ export type applicationInputs = {
     email : string,
     checked : boolean,
     uploaded : boolean,
+    position : string
 }
 
 const AppForm = () => {
     const [isSelected, setIsSelected] = useState(false)
     const [isHidden, setIsHidden] = useState(true);
+    const [selectedPos, setSelectedPos] = useState("");
 
+    const setSelected = (title:string) =>{
+        setSelectedPos(title)
+    }
     const {
         register,
         handleSubmit,
@@ -60,6 +67,7 @@ const AppForm = () => {
             email: '',
             checked: false,
             uploaded: false,
+            position: ''
         },
     });
 
@@ -83,16 +91,16 @@ const AppForm = () => {
 
 
     return(
-
-        <form onSubmit={handleSubmit(onSubmit, errors => console.warn('Validation failed:', errors))} className="bg-black bg-cover h-min-screen flex flex-col lg:gap-y-10 gap-y-10 justify-start items-center relative overflow-x-clip font-sans p-4">
+        <div className="p-4">
             <div className="relative flex flex-row w-full 2xl:w-3/7 justify-end items-center">
                 <DDFormField control={control} name="language" dd_num={5} dd_text={['Albanian','German', 'French', 'Italian', 'English']} hidden={isHidden} dd_icons={['albanianflag.jpg','germanflag.png', 'frenchflag.jpg', 'italianflag.jpg', 'britishflag.png']} required={false}/>
             </div>
+        <form onSubmit={handleSubmit(onSubmit, errors => console.warn('Validation failed:', errors))} className="bg-black bg-cover h-min-screen flex flex-col lg:gap-y-10 gap-y-10 justify-start items-center relative overflow-x-clip font-sans">
             <div className="flex flex-col md:flex-row justify-start items-center w-full 2xl:w-3/7 overflow-clip">
                 <div className="flex flex-col items-start justify-center space-y-2 w-full">
                     <h1 className="text-white text-3xl tracking-wider font-bold">Open Jobs</h1>
                     <p className="text-white/50 text-md tracking-wider">What position are you applying for?</p>
-                    <OpenPosition title="Customer Care Advisor" icon="⌄" isSelected={isSelected} onClick={() => setIsSelected(!isSelected)}/>
+                    <OPFormField control={control} name="position" title="Customer Care Advisor" isSelected={isSelected} onClick={setSelected}/>
                 </div>
             </div>
             <div className="flex flex-col md:flex-row justify-start items-center w-full 2xl:w-3/7">
@@ -160,6 +168,7 @@ const AppForm = () => {
                 <UploadButton isRequired={false} label="SUBMIT APPLICATION" upload_icon="" title=""/>
             </div>
         </form>
+        </div>
     );
 }
 export default AppForm;

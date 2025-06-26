@@ -4,20 +4,19 @@ import type { applicationInputs } from "./app_form";
 import { Controller } from "react-hook-form";
 import { Control } from "react-hook-form";
 import { FieldPath } from "react-hook-form";
+
 type DDControllerProps = {
-    label?: string,
-    dd_icon?: string,
-    dd_icon_up?: string,
-    dd_num?: number,
-    dd_text?: string[],
-    dd_icons?: string[],
-    hidden?:boolean,
-    button_icon?: string,
-    required?: boolean,
-    onChange?: (newval:string)=>void,
-    control: Control<applicationInputs>,
-    name: FieldPath<applicationInputs>,
-    value?: string
+    name: FieldPath<applicationInputs>
+    control: Control<applicationInputs>
+    label?: string
+    dd_icon?: string
+    dd_icon_up?: string
+    dd_num?: number
+    dd_text?: string[]
+    dd_icons?: string[]
+    hidden?: boolean
+    button_icon?: string
+    required?: boolean
 }
 
 const DDFormField:React.FC<DDControllerProps> =({
@@ -30,10 +29,8 @@ const DDFormField:React.FC<DDControllerProps> =({
     hidden        = true,
     button_icon   = "",
     required      = true,
-    onChange,
     control,
     name,
-    value
 }) =>{
     return(
         <Controller

@@ -3,38 +3,21 @@ import type { applicationInputs } from "./app_form";
 import { Controller } from "react-hook-form";
 import { Control } from "react-hook-form";
 import { FieldPath } from "react-hook-form";
+
 type TFControllerProps = {
-    name: FieldPath<applicationInputs>,
-    fname?: string,
-    surname?: string,
-    required?: boolean,
-    onChange?: (newval:string)=>void,
-    control: Control<applicationInputs>,
-    birthday?: string
-    isDatePicker?: boolean,
-    idnum?: string,
-    residence?: string,
-    phonenum?: string,
-    email?: string,
-    label?: string,
-    value?: string
+name: FieldPath<applicationInputs>;
+  control: Control<applicationInputs>;
+  label?: string;
+  required?: boolean;
+  isDatePicker?: boolean;
 }
 
-const TFFormField:React.FC<TFControllerProps> =({
-    fname         = "",
-    surname       = "",  
+const TFFormField:React.FC<TFControllerProps> =({  
     label         = "",
     required      = true,
-    birthday      = "",
     isDatePicker  = false,
-    idnum         = "",
-    residence     = "",
-    phonenum      = "",
-    email         = "",
-    onChange,
     control,
     name,
-    value
 }) =>{
     return(
         <Controller
