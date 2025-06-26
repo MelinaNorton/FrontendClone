@@ -1,7 +1,7 @@
 'use client'
 import { useState, useEffect } from "react";
 
-type dropdownProps = {
+export type dropdownProps = {
     label : string,
     dd_icon : string,
     dd_icon_up : string,
@@ -24,7 +24,7 @@ const DropdownMenu:React.FC<dropdownProps> = (props : dropdownProps) => {
     useEffect(() =>{
         {!props.required ? props.onChange(choice) : console.log('continue')}
     }),[props.required, choice, props.onChange]
-    
+
     const setChoiceData = (choiceText:string, choiceIcon:string) =>{
         setChoice(choiceText);
         props.onChange(choiceText);
@@ -47,7 +47,7 @@ const DropdownMenu:React.FC<dropdownProps> = (props : dropdownProps) => {
                         {props.dd_text.map((textcontent, i, key) =>(
                             <div className={`bg-white hover:bg-gray-200 flex flex-row w-full ${i==0 ? "rounded-t-lg" : ""} ${i==props.dd_num-1 ? "rounded-b-lg" : ""}`} key={i}>
                                 {props.dd_icons[i]!='' ? <img src={"/resources/"+props.dd_icons[i]} className="h-5"></img> : <p></p>}
-                                <button className={`text-black w-full flex flex-col justify-center items-start hover:cursor-pointer p-1`} key={i} onClick={()=> setChoiceData(textcontent, props.dd_icons[i])}>{textcontent}</button>
+                                <button type="button" className={`text-black w-full flex flex-col justify-center items-start hover:cursor-pointer p-1`} key={i} onClick={()=> setChoiceData(textcontent, props.dd_icons[i])}>{textcontent}</button>
                             </div>
                         ))}
                 </div>

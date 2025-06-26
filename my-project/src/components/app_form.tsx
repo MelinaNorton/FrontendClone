@@ -10,6 +10,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { SubmitHandler } from "react-hook-form";
 import { Controller } from "react-hook-form";
 import { TextInputSchema } from "@/schemas/textInputSchema";
+import DDFormField from "./ddformfield";
 
 export type applicationInputs = {
     name : string,
@@ -41,6 +42,8 @@ const AppForm = () => {
         formState: { errors },
     } = useForm<applicationInputs>({
         resolver: yupResolver(TextInputSchema),
+        mode: "onSubmit",
+        reValidateMode: "onSubmit",
         defaultValues: {
             name: '',
             surname: '',
@@ -60,6 +63,7 @@ const AppForm = () => {
     });
 
     const onSubmit: SubmitHandler<applicationInputs> = (data) => {
+        console.log(errors)
         console.log(data.name)
         console.log(data.surname)
         console.log(data.language)
@@ -74,23 +78,13 @@ const AppForm = () => {
         console.log(data.email)
         console.log(data.checked)
         console.log(data.email)
-        reset()
     }
 
     return(
 
         <form onSubmit={handleSubmit(onSubmit)} className="bg-black bg-cover h-min-screen flex flex-col lg:gap-y-10 gap-y-10 justify-start items-center relative overflow-x-clip font-sans p-4">
             <div className="relative flex flex-row w-full 2xl:w-3/7 justify-end items-center">
-                <Controller
-                name="language"
-                control={control}
-                render = {({field}) =>(
-                    <div className="flex flex-col space-y-2">
-                        {errors.language && <p className="text-white text-md tracking-wider font-bold">{errors.language.message}</p>}
-                        <DropdownMenu label="" dd_icon="▼" dd_icon_up="▲" dd_num={5} dd_text={['Albanian','German', 'French', 'Italian', 'English']} hidden={isHidden} dd_icons={['albanianflag.jpg','germanflag.png', 'frenchflag.jpg', 'italianflag.jpg', 'britishflag.png']} button_icon="" required={false} onChange={field.onChange}/>
-                    </div>
-                )}
-                ></Controller>
+                <DDFormField control={control} name="language" dd_num={5} dd_text={['Albanian','German', 'French', 'Italian', 'English']} hidden={isHidden} dd_icons={['albanianflag.jpg','germanflag.png', 'frenchflag.jpg', 'italianflag.jpg', 'britishflag.png']} required={false}/>
             </div>
             <div className="flex flex-col md:flex-row justify-start items-center w-full 2xl:w-3/7 overflow-clip">
                 <div className="flex flex-col items-start justify-center space-y-2 w-full">
@@ -103,36 +97,9 @@ const AppForm = () => {
                 <div className="flex flex-col items-start justify-center space-y-2 w-full">
                     <h1 className="text-white text-2xl tracking-wider font-bold">Languages</h1>
                     <div className="flex lg:flex-row flex-col justify-start items-start w-full lg:justify-between lg:items-start space-y-10">
-                        <Controller
-                            name="appliedLang"
-                            control={control}
-                            render = {({field}) =>(
-                                <div className="flex flex-col space-y-2">
-                                    {errors.appliedLang && <p className="text-white tracking-wider text-md font-bold">{errors.appliedLang.message}</p>}
-                                     <DropdownMenu label="What language are you applying for?" dd_icon="▼" dd_icon_up="▲" dd_num={4} dd_text={['German', 'French', 'Italian', 'English']} hidden={isHidden} dd_icons={['germanflag.png', 'frenchflag.jpg', 'italianflag.jpg', 'britishflag.png']} button_icon="" required={true} onChange={field.onChange}/>
-                                </div>
-                            )}
-                        ></Controller>
-                        <Controller
-                            name="level"
-                            control={control}
-                            render = {({field}) =>(
-                                <div className="flex flex-col space-y-2">
-                                    {errors.level && <p className="text-white tracking-wider text-md font-bold">{errors.level.message}</p>}
-                                     <DropdownMenu label="What language level are you at?" dd_icon="▼" dd_icon_up="▲" dd_num={6} dd_text={['A1', 'A2', 'B1', 'B2', 'C1', 'C2']} hidden={isHidden} dd_icons={['', '', '', '', '', '']} button_icon="" required={true} onChange={field.onChange}/>
-                                </div>
-                            )}
-                        ></Controller>
-                        <Controller
-                            name="xtraLang"
-                            control={control}
-                            render = {({field}) =>(
-                                <div className="flex flex-col space-y-2">
-                                    {errors.xtraLang && <p className="text-white tracking-wider text-md font-bold">{errors.xtraLang.message}</p>}
-                                    <DropdownMenu label="Do you speak any other languages?(optional)" dd_icon="▼" dd_icon_up="▲" dd_num={5} dd_text={['German','Italian', 'French', 'English', 'Ukranian']} hidden={isHidden} dd_icons={['', '', '', '', '', '']} button_icon="" required={false} onChange={field.onChange}/>
-                                </div>
-                            )}
-                        ></Controller>
+                        <DDFormField name="appliedLang" control={control} label={"What language are you applying for?"} dd_num={4} dd_text={['German', 'French', 'Italian', 'English']} hidden={isHidden} dd_icons={['germanflag.png', 'frenchflag.jpg', 'italianflag.jpg', 'britishflag.png']}/>
+                        <DDFormField name="level" control={control} label="What language level are you?" dd_num={6} dd_text={['A1', 'A2', 'B1', 'B2', 'C1', 'C2']}/>
+                        <DDFormField name="xtraLang" control={control} label="Do you speak any other languages?(optional)" dd_num={5} dd_text={['German','Italian', 'French', 'English', 'Ukranian']} required={false}/>
                     </div>
                 </div>
             </div>
@@ -142,16 +109,7 @@ const AppForm = () => {
                         <h1 className="text-white text-2xl tracking-wider font-bold">Locations</h1>
                     </div>
                     <div className="flex flex-col w-full justify-start items-start">
-                        <Controller
-                            name="location"
-                            control={control}
-                            render = {({field}) =>(
-                                <div className="flex flex-col space-y-2">
-                                    {errors.location && <p className="text-white tracting-wider text-md font-bold">{errors.location.message}</p>}
-                                    <DropdownMenu label="Your preferred location to work?" dd_icon="▼" dd_icon_up="▲" dd_num={4} dd_text={['Prishtine HQ', 'Vushtrri', 'Ferizaj', 'Prizren']} hidden={isHidden} dd_icons={['germanflag.png', 'frenchflag.jpg', 'italianflag.jpg', 'britishflag.png']} button_icon="" required={true} onChange={field.onChange}/>
-                                </div>
-                            )}
-                        ></Controller>
+                        <DDFormField name="location" control={control} label="Your preferred location to work?" dd_num={4} dd_text={['Prishtine HQ', 'Vushtrri', 'Ferizaj', 'Prizren']} dd_icons={['germanflag.png', 'frenchflag.jpg', 'italianflag.jpg', 'britishflag.png']}/>
                     </div>
                 </div>
             </div>
@@ -211,16 +169,7 @@ const AppForm = () => {
                                 </div>
                             )}
                         ></Controller>
-                        <Controller
-                            name="diaspora"
-                            control={control}
-                            render = {({field}) =>(
-                                <div className="flex flex-col space-y-2">
-                                    {errors.diaspora && <p className="text-white text-md tracking-wider font-bold">{errors.diaspora.message}</p>}
-                                     <DropdownMenu label="Diaspora?" dd_icon="▼" dd_icon_up="▲" dd_num={2} dd_text={['true', 'false']} hidden={isHidden} dd_icons={['', '']} button_icon="" required={true} onChange={field.onChange}/>
-                                </div>
-                            )}
-                        ></Controller>
+                        <DDFormField name="diaspora" control={control} label="Diaspora?" dd_num={2} dd_text={['true', 'false']}/>
                     </div>
                     <div className="flex lg:flex-row flex-col justify-start md:justify-start w-full 2xl:w-3/7  space-x-11 2xl:space-x-17 space-y-10">
                         <Controller
