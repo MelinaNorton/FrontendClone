@@ -14,7 +14,6 @@ import DDFormField from "./ddformfield";
 import TFFormField from "./tfformfield";
 
 export type applicationInputs = {
-    name : string,
     fname : string,
     surname : string,
     language : string,
@@ -29,7 +28,7 @@ export type applicationInputs = {
     phonenum : string,
     email : string,
     checked : boolean,
-    uploaded : boolean
+    uploaded : boolean,
 }
 
 const AppForm = () => {
@@ -47,7 +46,6 @@ const AppForm = () => {
         mode: "onSubmit",
         reValidateMode: "onSubmit",
         defaultValues: {
-            name: '',
             fname: '',
             surname: '',
             language: '',
@@ -61,12 +59,11 @@ const AppForm = () => {
             phonenum: '',
             email: '',
             checked: false,
-            uploaded: false
+            uploaded: false,
         },
     });
 
     const onSubmit: SubmitHandler<applicationInputs> = (data) => {
-        console.log("SUBMITTED")
         console.log(errors)
         console.log(data.fname)
         console.log(data.surname)
@@ -84,9 +81,10 @@ const AppForm = () => {
         console.log(data.email)
     }
 
+
     return(
 
-        <form onSubmit={handleSubmit(onSubmit)} className="bg-black bg-cover h-min-screen flex flex-col lg:gap-y-10 gap-y-10 justify-start items-center relative overflow-x-clip font-sans p-4">
+        <form onSubmit={handleSubmit(onSubmit, errors => console.warn('Validation failed:', errors))} className="bg-black bg-cover h-min-screen flex flex-col lg:gap-y-10 gap-y-10 justify-start items-center relative overflow-x-clip font-sans p-4">
             <div className="relative flex flex-row w-full 2xl:w-3/7 justify-end items-center">
                 <DDFormField control={control} name="language" dd_num={5} dd_text={['Albanian','German', 'French', 'Italian', 'English']} hidden={isHidden} dd_icons={['albanianflag.jpg','germanflag.png', 'frenchflag.jpg', 'italianflag.jpg', 'britishflag.png']} required={false}/>
             </div>
@@ -121,7 +119,7 @@ const AppForm = () => {
                 <div className="flex flex-col items-start justify-center space-y-8 w-full">
                     <h1 className="text-white text-2xl tracking-wider font-bold">Personal data</h1>
                     <div className="flex lg:flex-row flex-col justify-start w-full md:justify-between space-y-10">
-                        <TFFormField name="name" control={control} label="Name"/>
+                        <TFFormField name="fname" control={control} label="Name"/>
                         <TFFormField name="surname" control={control} label="Surname"/>
                         <TFFormField name="birthday" control={control} label="Birthdate" isDatePicker={true}/>
                     </div>

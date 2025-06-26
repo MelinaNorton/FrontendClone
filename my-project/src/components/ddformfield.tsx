@@ -16,7 +16,8 @@ type DDControllerProps = {
     required?: boolean,
     onChange?: (newval:string)=>void,
     control: Control<applicationInputs>,
-    name: FieldPath<applicationInputs>
+    name: FieldPath<applicationInputs>,
+    value?: string
 }
 
 const DDFormField:React.FC<DDControllerProps> =({
@@ -31,7 +32,8 @@ const DDFormField:React.FC<DDControllerProps> =({
     required      = true,
     onChange,
     control,
-    name
+    name,
+    value
 }) =>{
     return(
         <Controller
@@ -39,7 +41,7 @@ const DDFormField:React.FC<DDControllerProps> =({
             control={control}
             render = {({field}) =>(
             <div className="flex flex-col space-y-2">
-                <DropdownMenu label={label} dd_icon={dd_icon} dd_icon_up={dd_icon_up} dd_num={dd_num} dd_text={dd_text} hidden={hidden} dd_icons={dd_icons} button_icon={button_icon} required={required} onChange={field.onChange}/>
+                <DropdownMenu value={typeof field.value === "string" ? field.value : ""} label={label} dd_icon={dd_icon} dd_icon_up={dd_icon_up} dd_num={dd_num} dd_text={dd_text} hidden={hidden} dd_icons={dd_icons} button_icon={button_icon} required={required} onChange={field.onChange}/>
             </div>
           )}
         ></Controller>

@@ -16,7 +16,8 @@ type TFControllerProps = {
     residence?: string,
     phonenum?: string,
     email?: string,
-    label?: string
+    label?: string,
+    value?: string
 }
 
 const TFFormField:React.FC<TFControllerProps> =({
@@ -32,7 +33,8 @@ const TFFormField:React.FC<TFControllerProps> =({
     email         = "",
     onChange,
     control,
-    name
+    name,
+    value
 }) =>{
     return(
         <Controller
@@ -40,7 +42,7 @@ const TFFormField:React.FC<TFControllerProps> =({
             control={control}
             render = {({field}) =>(
             <div className="flex flex-col space-y-2">
-                <TextInput label={label} required={required} isDatePicker={isDatePicker} onChange={field.onChange}/>
+                <TextInput label={label} required={required} isDatePicker={isDatePicker} {...field}/>
             </div>
           )}
         ></Controller>

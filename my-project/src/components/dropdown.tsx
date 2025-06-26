@@ -12,6 +12,7 @@ export type dropdownProps = {
     button_icon : string,
     required : boolean,
     onChange : (newval:string)=>void,
+    value : string
 }
 
 const DropdownMenu:React.FC<dropdownProps> = (props : dropdownProps) => {
@@ -39,7 +40,7 @@ const DropdownMenu:React.FC<dropdownProps> = (props : dropdownProps) => {
                 <div className="bg-gray-300/20 2xl:w-110 lg:w-95 w-full h-15 flex flex-row justify-between items-center rounded-md hover:bg-gray-400/40 p-3 hover:cursor-pointer" onClick={()=>setFocused(!focused)}>
                     <div className="flex flex-row justify-start items-center space-x-5">
                         {choiceIcon !="" ? <img src={"/resources/" + choiceIcon} className="h-5"></img> : <p></p>}
-                        <p className="text-md text-white">{choice}</p>
+                        <p className="text-md text-white">{props.value}</p>
                     </div>
                     <p className="text-xs text-white">{focused ? props.dd_icon_up : props.dd_icon}</p>
                 </div>  
