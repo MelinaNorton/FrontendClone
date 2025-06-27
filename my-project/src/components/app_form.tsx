@@ -35,7 +35,6 @@ export type applicationInputs = {
 }
 
 const AppForm = () => {
-    const [isSelected, setIsSelected] = useState(false)
     const [isHidden, setIsHidden] = useState(true);
     const [selectedPos, setSelectedPos] = useState("");
 
@@ -45,6 +44,7 @@ const AppForm = () => {
     const {
         register,
         handleSubmit,
+        setValue,
         reset,
         control,
         formState: { errors },
@@ -73,6 +73,7 @@ const AppForm = () => {
 
     const onSubmit: SubmitHandler<applicationInputs> = (data) => {
         console.log(errors)
+        console.log(data.position)
         console.log(data.fname)
         console.log(data.surname)
         console.log(data.language)
@@ -87,11 +88,13 @@ const AppForm = () => {
         console.log(data.email)
         console.log(data.checked)
         console.log(data.email)
+        reset()
     }
 
 
     return(
         <div className="p-4">
+            <button className="bg-red-500 h-50" onClick={()=>console.log(selectedPos)}>TESTVAL</button>
             <div className="relative flex flex-row w-full 2xl:w-3/7 justify-end items-center">
                 <DDFormField control={control} name="language" dd_num={5} dd_text={['Albanian','German', 'French', 'Italian', 'English']} hidden={isHidden} dd_icons={['albanianflag.jpg','germanflag.png', 'frenchflag.jpg', 'italianflag.jpg', 'britishflag.png']} required={false}/>
             </div>
@@ -100,7 +103,8 @@ const AppForm = () => {
                 <div className="flex flex-col items-start justify-center space-y-2 w-full">
                     <h1 className="text-white text-3xl tracking-wider font-bold">Open Jobs</h1>
                     <p className="text-white/50 text-md tracking-wider">What position are you applying for?</p>
-                    <OPFormField control={control} name="position" title="Customer Care Advisor" isSelected={isSelected} onClick={setSelected}/>
+                    <OPFormField control={control} name="position" title="Customer Care Advisor" isSelected={""} onClick={setSelected} setValue={setValue}/>
+                    <input type="hidden" {...register("position")} value={selectedPos} />
                 </div>
             </div>
             <div className="flex flex-col md:flex-row justify-start items-center w-full 2xl:w-3/7">
