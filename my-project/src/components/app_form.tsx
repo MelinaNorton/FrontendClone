@@ -161,14 +161,16 @@ const AppForm = () => {
                 <Controller
                     name="checked"
                     control={control}
-                    render = {({field}) =>(
-                        <div className="flex flex-col space-y-2">
-                            {errors.checked && <p className="text-white text-md tracking-wider font-bold">{errors.checked.message}</p>}
-                            <CheckBox label="" onChange={e => field.onChange(e)} checked={field.value}/>
+                    render = {({field, fieldState:{error}}) =>(
+                        <div className="flex flex-col space-y-2 relative">
+                            {error && <p className="text-red-700 text-sm text-boldw-200">{error.message}</p>}
+                            <div className="flex flex-row space-x-2">
+                                <CheckBox label="" onChange={field.onChange} checked={field.value}/>
+                                <p className="text-white text-md tracking-wider text-start">I agree to the terms of service *</p>
+                            </div>
                         </div>
                     )}
                 ></Controller>
-                <p className="text-white text-md tracking-wider text-start">I agree to the terms of service *</p>
             </div>
             <div className="flex flex-col w-full items-start justify-center">
                 <UploadButton setValue={setValue} required={false} label="SUBMIT APPLICATION" upload_icon="" title="" disabled={getValues('position')==""}/>
