@@ -6,6 +6,7 @@ import { FieldPath } from "react-hook-form";
 import { useState } from "react";
 import { Dispatch } from "react";
 import { UseFormSetValue } from "react-hook-form";
+import { UseFormGetValues } from "react-hook-form";
 
 type OPControllerProps = {
     control: Control<applicationInputs>;
@@ -16,6 +17,7 @@ type OPControllerProps = {
     isSelected?: string;
     onClick: (title:string) => void;
     setValue: UseFormSetValue<applicationInputs>;
+    getValue: UseFormGetValues<applicationInputs>
 }
 
 const OPFormField:React.FC<OPControllerProps> = ({
@@ -26,7 +28,8 @@ const OPFormField:React.FC<OPControllerProps> = ({
     control,
     onClick,
     name,
-    setValue
+    setValue,
+    getValue
 }) => {
     return(
         <Controller
@@ -34,7 +37,7 @@ const OPFormField:React.FC<OPControllerProps> = ({
             control={control}
             render = {({field}) =>(
             <div className="flex flex-col space-y-2">
-                <OpenPosition title={title} icon="⌄" isSelected={isSelected} onClick={onClick} setValue={setValue}/>
+                <OpenPosition title={title} icon="⌄" isSelected={isSelected} onClick={onClick} setValue={setValue} getValue={getValue} name={name}/>
             </div>
           )}
         ></Controller>

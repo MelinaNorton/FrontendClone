@@ -6,6 +6,7 @@ import { Control } from "react-hook-form";
 import { FieldPath } from "react-hook-form";
 import { FieldErrors } from "react-hook-form";
 import { UseFormGetValues } from "react-hook-form";
+import { Path } from "react-hook-form";
 
 type DDControllerProps = {
     name: FieldPath<applicationInputs>
@@ -19,6 +20,8 @@ type DDControllerProps = {
     hidden?: boolean
     button_icon?: string
     required?: boolean
+    getValue: UseFormGetValues<applicationInputs>
+    position: FieldPath<applicationInputs>
 }
 
 const DDFormField:React.FC<DDControllerProps> =({
@@ -33,6 +36,8 @@ const DDFormField:React.FC<DDControllerProps> =({
     required      = true,
     control,
     name,
+    position,
+    getValue
 }) =>{
     return(
         <Controller
@@ -41,7 +46,7 @@ const DDFormField:React.FC<DDControllerProps> =({
             render = {({field, fieldState:{error}}) =>(
             <div className="flex flex-col space-y-2">
                 {error ? <p className="text-red-700 text-sm text-bold">{error.message}</p> : <p></p>}
-                <DropdownMenu value={typeof field.value === "string" ? field.value : ""} label={label} dd_icon={dd_icon} dd_icon_up={dd_icon_up} dd_num={dd_num} dd_text={dd_text} hidden={hidden} dd_icons={dd_icons} button_icon={button_icon} required={required} onChange={field.onChange}/>
+                <DropdownMenu value={typeof field.value === "string" ? field.value : ""} label={label} dd_icon={dd_icon} dd_icon_up={dd_icon_up} dd_num={dd_num} dd_text={dd_text} hidden={hidden} dd_icons={dd_icons} button_icon={button_icon} required={required} onChange={field.onChange} disabled={getValue(position)==''}/>
             </div>
           )}
         ></Controller>

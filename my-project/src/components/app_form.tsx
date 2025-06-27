@@ -101,14 +101,14 @@ const AppForm = () => {
     return(
         <div className="p-4">
             <div className="relative flex flex-row w-full 2xl:w-3/7 justify-end items-center">
-                <DDFormField control={control} name="language" dd_num={5} dd_text={['Albanian','German', 'French', 'Italian', 'English']} hidden={isHidden} dd_icons={['albanianflag.jpg','germanflag.png', 'frenchflag.jpg', 'italianflag.jpg', 'britishflag.png']} required={false}/>
+                <DDFormField control={control} name="language" dd_num={5} dd_text={['Albanian','German', 'French', 'Italian', 'English']} hidden={isHidden} dd_icons={['albanianflag.jpg','germanflag.png', 'frenchflag.jpg', 'italianflag.jpg', 'britishflag.png']} required={false} getValue={getValues} position={'position'}/>
             </div>
         <form onSubmit={handleSubmit(onSubmit, errors => console.warn('Validation failed:', errors))} className="bg-black bg-cover h-min-screen flex flex-col lg:gap-y-10 gap-y-10 justify-start items-center relative overflow-x-clip font-sans">
             <div className="flex flex-col md:flex-row justify-start items-center w-full 2xl:w-3/7 overflow-clip">
                 <div className="flex flex-col items-start justify-center space-y-2 w-full">
                     <h1 className="text-white text-3xl tracking-wider font-bold">Open Jobs</h1>
                     <p className="text-white/50 text-md tracking-wider">What position are you applying for?</p>
-                    <OPFormField control={control} name="position" title="Customer Care Advisor" isSelected={""} onClick={setSelected} setValue={setValue}/>
+                    <OPFormField control={control} name="position" title="Customer Care Advisor" isSelected={""} onClick={setSelected} setValue={setValue} getValue={getValues}/>
                     <input type="hidden" {...register("position")} value={selectedPos} />
                 </div>
             </div>
@@ -116,9 +116,9 @@ const AppForm = () => {
                 <div className="flex flex-col items-start justify-center space-y-2 w-full">
                     <h1 className="text-white text-2xl tracking-wider font-bold">Languages</h1>
                     <div className="flex lg:flex-row flex-col justify-start items-start w-full lg:justify-between lg:items-start space-y-10">
-                        <DDFormField name="appliedLang" control={control} label={"What language are you applying for?"} dd_num={4} dd_text={['German', 'French', 'Italian', 'English']} hidden={isHidden} dd_icons={['germanflag.png', 'frenchflag.jpg', 'italianflag.jpg', 'britishflag.png']}/>
-                        <DDFormField name="level" control={control} label="What language level are you?" dd_num={6} dd_text={['A1', 'A2', 'B1', 'B2', 'C1', 'C2']}/>
-                        <DDFormField name="xtraLang" control={control} label="Do you speak any other languages?(optional)" dd_num={5} dd_text={['German','Italian', 'French', 'English', 'Ukranian']} required={false}/>
+                        <DDFormField name="appliedLang" control={control} label={"What language are you applying for?"} dd_num={4} dd_text={['German', 'French', 'Italian', 'English']} hidden={isHidden} dd_icons={['germanflag.png', 'frenchflag.jpg', 'italianflag.jpg', 'britishflag.png']} getValue={getValues} position={'position'}/>
+                        <DDFormField name="level" control={control} label="What language level are you?" dd_num={6} dd_text={['A1', 'A2', 'B1', 'B2', 'C1', 'C2']} getValue={getValues} position={'position'}/>
+                        <DDFormField name="xtraLang" control={control} label="Do you speak any other languages?(optional)" dd_num={5} dd_text={['German','Italian', 'French', 'English', 'Ukranian']} required={false} getValue={getValues} position={'position'}/>
                     </div>
                 </div>
             </div>
@@ -128,7 +128,7 @@ const AppForm = () => {
                         <h1 className="text-white text-2xl tracking-wider font-bold">Locations</h1>
                     </div>
                     <div className="flex flex-col w-full justify-start items-start">
-                        <DDFormField name="location" control={control} label="Your preferred location to work?" dd_num={4} dd_text={['Prishtine HQ', 'Vushtrri', 'Ferizaj', 'Prizren']} dd_icons={['germanflag.png', 'frenchflag.jpg', 'italianflag.jpg', 'britishflag.png']}/>
+                        <DDFormField name="location" control={control} label="Your preferred location to work?" dd_num={4} dd_text={['Prishtine HQ', 'Vushtrri', 'Ferizaj', 'Prizren']} dd_icons={['germanflag.png', 'frenchflag.jpg', 'italianflag.jpg', 'britishflag.png']} getValue={getValues} position={'position'}/>
                     </div>
                 </div>
             </div>
@@ -136,18 +136,18 @@ const AppForm = () => {
                 <div className="flex flex-col items-start justify-center space-y-8 w-full">
                     <h1 className="text-white text-2xl tracking-wider font-bold">Personal data</h1>
                     <div className="flex lg:flex-row flex-col justify-start w-full md:justify-between space-y-10">
-                        <TFFormField name="fname" control={control} label="Name"/>
-                        <TFFormField name="surname" control={control} label="Surname"/>
-                        <TFFormField name="birthday" control={control} label="Birthdate" isDatePicker={true}/>
+                        <TFFormField name="fname" control={control} label="Name" getValue={getValues} position={'position'}/>
+                        <TFFormField name="surname" control={control} label="Surname" getValue={getValues} position={'position'}/>
+                        <TFFormField name="birthday" control={control} label="Birthdate" isDatePicker={true} getValue={getValues} position={'position'}/>
                     </div>
                     <div className="flex lg:flex-row flex-col justify-start w-full  md:justify-between space-y-10">
-                        <TFFormField name="idnum" control={control} label="Identification Number"/>
-                        <TFFormField name="residence" control={control} label="Residence"/>
-                        <DDFormField name="diaspora" control={control} label="Diaspora?" dd_num={2} dd_text={['true', 'false']}/>
+                        <TFFormField name="idnum" control={control} label="Identification Number" getValue={getValues} position={'position'}/>
+                        <TFFormField name="residence" control={control} label="Residence" getValue={getValues} position={'position'}/>
+                        <DDFormField name="diaspora" control={control} label="Diaspora?" dd_num={2} dd_text={['true', 'false']} getValue={getValues} position={'position'}/>
                     </div>
                     <div className="flex lg:flex-row flex-col justify-start md:justify-start w-full 2xl:w-3/7  space-x-11 2xl:space-x-17 space-y-10">
-                        <TFFormField name="phonenum" control={control} label="Phone Number"/>
-                        <TFFormField name="email" control={control} label="Email"/>
+                        <TFFormField name="phonenum" control={control} label="Phone Number" getValue={getValues} position={'position'}/>
+                        <TFFormField name="email" control={control} label="Email" getValue={getValues} position={'position'}/>
                     </div>
                 </div>
             </div>
