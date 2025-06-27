@@ -68,6 +68,7 @@ const AppForm = () => {
         reset,
         control,
         formState: { errors },
+        formState: { isSubmitSuccessful},
     } = useForm<applicationInputs>({
         resolver: yupResolver(TextInputSchema),
         mode: "onSubmit",
@@ -154,7 +155,7 @@ const AppForm = () => {
             </div>
             <div className="flex flex-col md:flex-row justify-start items-start w-full 2xl:w-3/7">
                 <div className="flex flex-row justify-start items-center w-full space-x-10">
-                    <UDFormfield position={'position'}getValue={getValues} setValue={setValue} name="upload" control={control} required={true} title="Send your CV" label="Upload Document" uploadIcon="paperclip.svg" disabled={getValues('position')==""}/>
+                    <UDFormfield isSubmitted={isSubmitSuccessful} position={'position'}getValue={getValues} setValue={setValue} name="upload" control={control} required={true} title="Send your CV" label="Upload Document" uploadIcon="paperclip.svg" disabled={getValues('position')==""}/>
                 </div>
             </div>
             <div className="flex flex-col md:flex-row justify-start items-start w-full 2xl:w-3/7 space-x-5">
@@ -173,7 +174,7 @@ const AppForm = () => {
                 ></Controller>
             </div>
             <div className="flex flex-col w-full items-start justify-center">
-                <UploadButton setValue={setValue} required={false} label="SUBMIT APPLICATION" upload_icon="" title="" disabled={getValues('position')==""}/>
+                <UploadButton isSubmitted={isSubmitSuccessful} setValue={setValue} required={false} label="SUBMIT APPLICATION" upload_icon="" title="" disabled={getValues('position')==""}/>
             </div>
         </form>
         </div>

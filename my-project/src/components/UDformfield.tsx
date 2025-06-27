@@ -17,6 +17,7 @@ type UDControllerProps = {
     disabled : boolean;
     title : string;
     uploadIcon : string
+    isSubmitted :boolean
 }
 
 const UDFormfield:React.FC<UDControllerProps> =({
@@ -24,12 +25,13 @@ const UDFormfield:React.FC<UDControllerProps> =({
     required = true,
     disabled = true,
     uploadIcon = "",
+    isSubmitted = false,
     name,
     control,
     position,
     getValue,
     setValue,
-    title
+    title,
 })=>{
     return(
         <Controller
@@ -38,7 +40,7 @@ const UDFormfield:React.FC<UDControllerProps> =({
             render = {({field, fieldState:{error}}) =>(
             <div className="flex flex-col space-y-2">
                 {error ? <p className="text-red-700 text-sm text-bold">{error.message}</p> : <p></p>}
-                <UploadButton label={label} required={required} {...field} disabled={getValue(position)==""} title={title} upload_icon={uploadIcon} setValue={setValue}/>
+                <UploadButton isSubmitted={isSubmitted} label={label} required={required} {...field} disabled={getValue(position)==""} title={title} upload_icon={uploadIcon} setValue={setValue}/>
             </div>
           )}
         ></Controller>
