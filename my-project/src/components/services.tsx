@@ -1,7 +1,6 @@
 import ServiceImage from "./service_Image";
 import IndustryImage from "./industry_Image";
 import ICCImage from "./ICC_Image";
-import InsightsImage from "./insights_Pic";
 
 const ServiceSection = () => {
     return (

@@ -1,8 +1,5 @@
 'use client'
-import DropdownMenu from "./dropdown";
-import OpenPosition from "./openPositions";
 import { useState } from "react";
-import TextInput from "./textInput";
 import UploadButton from "./uploadDoc";
 import CheckBox from "./checkbox";
 import { useForm } from "react-hook-form";

@@ -1,12 +1,10 @@
 
-import DropdownMenu, { dropdownProps } from "./dropdown";  
+import DropdownMenu from "./dropdown";  
 import type { applicationInputs } from "./app_form";
 import { Controller } from "react-hook-form";
 import { Control } from "react-hook-form";
 import { FieldPath } from "react-hook-form";
-import { FieldErrors } from "react-hook-form";
 import { UseFormGetValues } from "react-hook-form";
-import { Path } from "react-hook-form";
 
 type DDControllerProps = {
     name: FieldPath<applicationInputs>
