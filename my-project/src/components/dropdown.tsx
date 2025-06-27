@@ -22,9 +22,13 @@ const DropdownMenu:React.FC<dropdownProps> = (props : dropdownProps) => {
     const startChoice = props.required? '' : ' '
     const [choice, setChoice] = useState(startChoice)
 
-    /*useEffect(() =>{
-        {!props.required ? props.onChange(choice) : console.log('continue')}
-    }),[props.required, choice, props.onChange]*/
+    useEffect(() => {
+    if (props.value === "") {
+      setChoice(startChoice);
+      setChoiceIcon("");
+      setFocused(false);
+    }
+    }, [props.value, startChoice]);
 
     const setChoiceData = (choiceText:string, choiceIcon:string) =>{
         setChoice(choiceText);

@@ -34,26 +34,8 @@ export type applicationInputs = {
     position : string
 }
 
-const AppForm = () => {
-    const [isHidden, setIsHidden] = useState(true);
-    const [selectedPos, setSelectedPos] = useState("");
-
-    const setSelected = (title:string) =>{
-        setSelectedPos(title)
-    }
-    const {
-        register,
-        handleSubmit,
-        setValue,
-        reset,
-        control,
-        formState: { errors },
-    } = useForm<applicationInputs>({
-        resolver: yupResolver(TextInputSchema),
-        mode: "onSubmit",
-        reValidateMode: "onSubmit",
-        defaultValues: {
-            fname: '',
+const defaultFormState = {
+    fname: '',
             surname: '',
             language: '',
             xtraLang: '',
@@ -68,8 +50,32 @@ const AppForm = () => {
             checked: false,
             uploaded: false,
             position: ''
-        },
+}
+
+
+const AppForm = () => {
+    const [isHidden, setIsHidden] = useState(true);
+    const [selectedPos, setSelectedPos] = useState("");
+
+    const setSelected = (title:string) =>{
+        setSelectedPos(title)
+    }
+    const {
+        register,
+        handleSubmit,
+        setValue,
+        getValues,
+        reset,
+        control,
+        formState: { errors },
+    } = useForm<applicationInputs>({
+        resolver: yupResolver(TextInputSchema),
+        mode: "onSubmit",
+        reValidateMode: "onSubmit",
+        defaultValues: defaultFormState,
     });
+
+    console.log('errors', errors)
 
     const onSubmit: SubmitHandler<applicationInputs> = (data) => {
         console.log(errors)
@@ -94,7 +100,6 @@ const AppForm = () => {
 
     return(
         <div className="p-4">
-            <button className="bg-red-500 h-50" onClick={()=>console.log(selectedPos)}>TESTVAL</button>
             <div className="relative flex flex-row w-full 2xl:w-3/7 justify-end items-center">
                 <DDFormField control={control} name="language" dd_num={5} dd_text={['Albanian','German', 'French', 'Italian', 'English']} hidden={isHidden} dd_icons={['albanianflag.jpg','germanflag.png', 'frenchflag.jpg', 'italianflag.jpg', 'britishflag.png']} required={false}/>
             </div>

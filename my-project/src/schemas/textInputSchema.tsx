@@ -1,7 +1,7 @@
 import * as yup from 'yup'
 
 export const TextInputSchema = yup.object({
-    fname: yup.string().required("name is required").max(20),
+    fname: yup.string().required("kshdabsjdha is required").max(20),
     surname: yup.string().required("surname is required").max(20),
     language: yup.string().required("language is required").max(20),
     xtraLang: yup.string().required().max(20),
@@ -12,8 +12,8 @@ export const TextInputSchema = yup.object({
     birthday: yup.string().required("birthday is required").max(20),
     idnum: yup.string().required("id number is required").max(20),
     residence: yup.string().required("residence is required").max(20),
-    phonenum: yup.string().required("phone number is required").max(20), //phone number format validatin
-    email: yup.string().required("email is required").max(20), //check if its in email format
+    phonenum: yup.string().matches(/^\d+$/, 'Must contain only numbers').required("phone number is required").max(10).min(10), //phone number format validatin
+    email: yup.string().email().required("email is required").max(20), //check if its in email format
     checked: yup.boolean().required("please check box"),
     uploaded: yup.boolean().required("please upload document"),
     position: yup.string().required()

@@ -23,8 +23,9 @@ const TFFormField:React.FC<TFControllerProps> =({
         <Controller
             name={name}
             control={control}
-            render = {({field}) =>(
+            render = {({field, fieldState:{error}}) =>(
             <div className="flex flex-col space-y-2">
+                {error ? <p className="text-red-700 text-sm text-bold">{error.message}</p> : <p></p>}
                 <TextInput label={label} required={required} isDatePicker={isDatePicker} {...field}/>
             </div>
           )}
