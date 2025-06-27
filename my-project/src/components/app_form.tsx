@@ -13,7 +13,7 @@ import { TextInputSchema } from "@/schemas/textInputSchema";
 import DDFormField from "./ddformfield";
 import TFFormField from "./tfformfield";
 import OPFormField from "./openposform";
-
+import UDFormfield from "./UDformfield";
 
 export type applicationInputs = {
     fname : string,
@@ -30,7 +30,7 @@ export type applicationInputs = {
     phonenum : string,
     email : string,
     checked : boolean,
-    uploaded : boolean,
+    upload : string,
     position : string
 }
 
@@ -48,7 +48,7 @@ const defaultFormState = {
             phonenum: '',
             email: '',
             checked: false,
-            uploaded: false,
+            upload: '',
             position: ''
 }
 
@@ -94,6 +94,7 @@ const AppForm = () => {
         console.log(data.email)
         console.log(data.checked)
         console.log(data.email)
+        console.log(data.upload)
         reset()
     }
 
@@ -128,7 +129,7 @@ const AppForm = () => {
                         <h1 className="text-white text-2xl tracking-wider font-bold">Locations</h1>
                     </div>
                     <div className="flex flex-col w-full justify-start items-start">
-                        <DDFormField name="location" control={control} label="Your preferred location to work?" dd_num={4} dd_text={['Prishtine HQ', 'Vushtrri', 'Ferizaj', 'Prizren']} dd_icons={['germanflag.png', 'frenchflag.jpg', 'italianflag.jpg', 'britishflag.png']} getValue={getValues} position={'position'}/>
+                        <DDFormField name="location" control={control} label="Your preferred location to work?" dd_num={4} dd_text={['Prishtine HQ', 'Vushtrri', 'Ferizaj', 'Prizren']} dd_icons={['', '', '', '']} getValue={getValues} position={'position'}/>
                     </div>
                 </div>
             </div>
@@ -153,11 +154,7 @@ const AppForm = () => {
             </div>
             <div className="flex flex-col md:flex-row justify-start items-start w-full 2xl:w-3/7">
                 <div className="flex flex-row justify-start items-center w-full space-x-10">
-                    <UploadButton isRequired={true} title="Send your CV" label="Upload Document" upload_icon="paperclip.svg"/>
-                    <div className="flex flex-col">
-                        <p className="text-white text-sm tracking-wider">No documents uploaded!</p>
-                        <p className="text-white text-sm tracking-wider"> The maximum size of the document allowed is 25mb. Allowed types: .pdf, .doc, .docx.</p>
-                    </div>
+                    <UDFormfield position={'position'}getValue={getValues} setValue={setValue} name="upload" control={control} required={true} title="Send your CV" label="Upload Document" uploadIcon="paperclip.svg" disabled={getValues('position')==""}/>
                 </div>
             </div>
             <div className="flex flex-col md:flex-row justify-start items-start w-full 2xl:w-3/7 space-x-5">
@@ -174,7 +171,7 @@ const AppForm = () => {
                 <p className="text-white text-md tracking-wider text-start">I agree to the terms of service *</p>
             </div>
             <div className="flex flex-col w-full items-start justify-center">
-                <UploadButton isRequired={false} label="SUBMIT APPLICATION" upload_icon="" title=""/>
+                <UploadButton setValue={setValue} required={false} label="SUBMIT APPLICATION" upload_icon="" title="" disabled={getValues('position')==""}/>
             </div>
         </form>
         </div>

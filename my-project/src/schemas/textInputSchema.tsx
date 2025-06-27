@@ -15,7 +15,7 @@ export const TextInputSchema = yup.object({
     phonenum: yup.string().matches(/^\d+$/, 'Must contain only numbers').required("phone number is required").max(10).min(10), //phone number format validatin
     email: yup.string().email().required("email is required").max(20), //check if its in email format
     checked: yup.boolean().required("please check box"),
-    uploaded: yup.boolean().required("please upload document"),
+    upload: yup.string().required("please upload document"),
     position: yup.string().required()
 })
 
