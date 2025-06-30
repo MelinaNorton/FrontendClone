@@ -12,6 +12,8 @@ import TFFormField from "./tfformfield";
 import OPFormField from "./openposform";
 import UDFormfield from "./UDformfield";
 
+export const dependent_inputs = ['language', 'level', 'xtralang']
+
 export type applicationInputs = {
     fname : string,
     surname : string,
@@ -100,7 +102,7 @@ const AppForm = () => {
     return(
         <div className="p-4">
             <div className="relative flex flex-row w-full 2xl:w-3/7 justify-end items-center">
-                <DDFormField control={control} name="language" dd_num={5} dd_text={['Albanian','German', 'French', 'Italian', 'English']} hidden={isHidden} dd_icons={['albanianflag.jpg','germanflag.png', 'frenchflag.jpg', 'italianflag.jpg', 'britishflag.png']} required={false} getValue={getValues} position={'position'}/>
+                <DDFormField control={control} name="language" dd_num={5} dd_text={['Albanian','German', 'French', 'Italian', 'English']} hidden={isHidden} dd_icons={['albanianflag.jpg','germanflag.png', 'frenchflag.jpg', 'italianflag.jpg', 'britishflag.png']} required={false} getValue={getValues} position={'position'} dependent_input="language"/>
             </div>
         <form onSubmit={handleSubmit(onSubmit, errors => console.warn('Validation failed:', errors))} className="bg-black bg-cover h-min-screen flex flex-col lg:gap-y-10 gap-y-10 justify-start items-center relative overflow-x-clip font-sans">
             <div className="flex flex-col md:flex-row justify-start items-center w-full 2xl:w-3/7 overflow-clip">
@@ -115,9 +117,9 @@ const AppForm = () => {
                 <div className="flex flex-col items-start justify-center space-y-2 w-full">
                     <h1 className="text-white text-2xl tracking-wider font-bold">Languages</h1>
                     <div className="flex lg:flex-row flex-col justify-start items-start w-full lg:justify-between lg:items-start space-y-10">
-                        <DDFormField name="appliedLang" control={control} label={"What language are you applying for?"} dd_num={4} dd_text={['German', 'French', 'Italian', 'English']} hidden={isHidden} dd_icons={['germanflag.png', 'frenchflag.jpg', 'italianflag.jpg', 'britishflag.png']} getValue={getValues} position={'position'}/>
-                        <DDFormField name="level" control={control} label="What language level are you?" dd_num={6} dd_text={['A1', 'A2', 'B1', 'B2', 'C1', 'C2']} getValue={getValues} position={'position'}/>
-                        <DDFormField name="xtraLang" control={control} label="Do you speak any other languages?(optional)" dd_num={5} dd_text={['German','Italian', 'French', 'English', 'Ukranian']} required={false} getValue={getValues} position={'position'}/>
+                        <DDFormField name="appliedLang" control={control} label={"What language are you applying for?"} dd_num={4} dd_text={['German', 'French', 'Italian', 'English']} hidden={isHidden} dd_icons={['germanflag.png', 'frenchflag.jpg', 'italianflag.jpg', 'britishflag.png']} getValue={getValues} position={'position'} dependent_input="language"/>
+                        <DDFormField name="level" control={control} label="What language level are you?" dd_num={6} dd_text={['A1', 'A2', 'B1', 'B2', 'C1', 'C2']} getValue={getValues} position={'position'} dependent_input="level"/>
+                        <DDFormField name="xtraLang" control={control} label="Do you speak any other languages?(optional)" dd_num={5} dd_text={['German','Italian', 'French', 'English', 'Ukranian']} required={false} getValue={getValues} position={'position'} dependent_input="xtralang"/>
                     </div>
                 </div>
             </div>
@@ -127,7 +129,7 @@ const AppForm = () => {
                         <h1 className="text-white text-2xl tracking-wider font-bold">Locations</h1>
                     </div>
                     <div className="flex flex-col w-full justify-start items-start">
-                        <DDFormField name="location" control={control} label="Your preferred location to work?" dd_num={4} dd_text={['Prishtine HQ', 'Vushtrri', 'Ferizaj', 'Prizren']} dd_icons={['', '', '', '']} getValue={getValues} position={'position'}/>
+                        <DDFormField name="location" control={control} label="Your preferred location to work?" dd_num={4} dd_text={['Prishtine HQ', 'Vushtrri', 'Ferizaj', 'Prizren']} dd_icons={['', '', '', '']} getValue={getValues} position={'position'} dependent_input="none"/>
                     </div>
                 </div>
             </div>
@@ -142,7 +144,7 @@ const AppForm = () => {
                     <div className="flex lg:flex-row flex-col justify-start w-full  md:justify-between space-y-10">
                         <TFFormField name="idnum" control={control} label="Identification Number" getValue={getValues} position={'position'}/>
                         <TFFormField name="residence" control={control} label="Residence" getValue={getValues} position={'position'}/>
-                        <DDFormField name="diaspora" control={control} label="Diaspora?" dd_num={2} dd_text={['true', 'false']} getValue={getValues} position={'position'}/>
+                        <DDFormField name="diaspora" control={control} label="Diaspora?" dd_num={2} dd_text={['true', 'false']} getValue={getValues} position={'position'} dependent_input="none"/>
                     </div>
                     <div className="flex lg:flex-row flex-col justify-start md:justify-start w-full 2xl:w-3/7  space-x-11 2xl:space-x-17 space-y-10">
                         <TFFormField name="phonenum" control={control} label="Phone Number" getValue={getValues} position={'position'}/>
