@@ -5,14 +5,14 @@ type checkProps = {
     checked : boolean
 }
 
-const CheckBox:React.FC<checkProps> = (props:checkProps) =>{
+const CheckBox:React.FC<checkProps> = ({label , onChange , checked}:checkProps) =>{
     return(
         <div className="flex flex-row items-center justify-start">
-            <p className="text-white text-md tracking-wider">{props.label}</p>
+            <p className="text-white text-md tracking-wider">{label}</p>
             <input type="checkbox" 
             className=" h-5 w-5"
-            checked={props.checked}
-            onChange = {e => props.onChange(e.target.checked)}
+            checked={checked}
+            onChange = {e => onChange(e.target.checked)}
             ></input>
         </div>
     );

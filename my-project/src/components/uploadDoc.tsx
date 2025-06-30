@@ -12,7 +12,15 @@ type uploadProps = {
     isSubmitted : boolean
 }
 
-const UploadButton:React.FC<uploadProps> = (props:uploadProps) => {
+const UploadButton:React.FC<uploadProps> = ({
+    title,
+    label,
+    upload_icon,
+    disabled,
+    required,
+    setValue,
+    isSubmitted
+}:uploadProps) => {
     const [localFile, setLocalFile] = useState("");
 
     const setFile =(file : File | undefined) =>{
@@ -21,21 +29,21 @@ const UploadButton:React.FC<uploadProps> = (props:uploadProps) => {
         }
         else{
             setLocalFile(file.name)
-            props.setValue("upload", file.name)
+            setValue("upload", file.name)
         }
     }
     return(
         <div className="group">
-            <h1 className="text-white text-lg tracking-wider text-start">{props.required ? props.title+"*" : props.title}</h1>
+            <h1 className="text-white text-lg tracking-wider text-start">{required ? title+"*" : title}</h1>
             <div className="flex flex-row space-x-4">
-                <div className={`relative bg-gray-300/20 md:w-55 w-35 h-20 rounded-md hover:bg-gray-400/40 p-2 flex flex-row items-center ${props.upload_icon==""? "justify-center" : "justify-start"}`}>
-                    {props.upload_icon!="" ? <img src={"/resources/" + props.upload_icon} className="h-5 md:pl-4 pl-1"></img> : <p></p>}
-                    <label htmlFor="uploadfile" className="text-start pl-15 absolute pointer-events-none">{props.label}</label>
-                    {props.upload_icon=="" ? <button type="submit" className="text-white text-md tracking-wider w-full h-full group-hover:cursor-pointer text-center"></button> : <input name="uploadfile" type="file" className="text-white absolute tracking-wider w-full h-full group-hover:cursor-pointer text-center opacity-0" onChange={(e)=>setFile(e.target.files?.[0])}></input>}
+                <div className={`relative bg-gray-300/20 md:w-55 w-35 h-20 rounded-md hover:bg-gray-400/40 p-2 flex flex-row items-center ${upload_icon==""? "justify-center" : "justify-start"}`}>
+                    {upload_icon!="" ? <img src={"/resources/" + upload_icon} className="h-5 md:pl-4 pl-1"></img> : <p></p>}
+                    <label htmlFor="uploadfile" className="text-start pl-15 absolute pointer-events-none">{label}</label>
+                    {upload_icon=="" ? <button type="submit" className="text-white text-md tracking-wider w-full h-full group-hover:cursor-pointer text-center"></button> : <input name="uploadfile" type="file" className="text-white absolute tracking-wider w-full h-full group-hover:cursor-pointer text-center opacity-0" onChange={(e)=>setFile(e.target.files?.[0])}></input>}
                 </div>
                 {
-                    !props.isSubmitted ? 
-                        props.upload_icon!=""?
+                    !isSubmitted ? 
+                        upload_icon!=""?
                             localFile == "" ?
                             <div className="flex flex-col">
                                     <p className="text-white text-sm tracking-wider">No documents uploaded!</p>
