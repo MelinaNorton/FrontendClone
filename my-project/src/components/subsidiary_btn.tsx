@@ -19,7 +19,7 @@ const SubsidiaryBtn:React.FC<subsidiary_btn_props> = ({title, color}:subsidiary_
     return(
         <div className="flex items-center justify-center">
             <div className={`relative ${colorsmap[color]} border-1 rounded-4xl py-1 px-6`}>
-                <button className="text-white text-sm font-light w-full h-full">{title}</button>
+                <button className="text-white md:text-sm text:xs font-light w-full text-nowrap h-full">{title}</button>
             </div>
         </div>
     )
