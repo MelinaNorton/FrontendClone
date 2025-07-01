@@ -15,6 +15,7 @@ const Navbar = () => {
                                 <p className="hidden  lg:flex md:hidden text-xs lg:text-lg text-white transition-colors hover:text-white/50 duration-500 hover:cursor-pointer whitespace-nowrap">About Us</p>
                                 <p className="hidden lg:flex md:hidden text-xs lg:text-lg text-white hover:text-white/50 duration-500 hover:cursor-pointer">Services</p>
                                 <p className="hidden lg:flex md:hidden text-xs lg:text-lg text-white hover:text-white/50 duration-500 hover:cursor-pointer">Industries</p>
+                                <p className="hidden lg:flex md:hidden text-xs lg:text-lg text-white hover:text-white/50 duration-500 hover:cursor-pointer" onClick={()=> router.push('./subsidiaries')}>Subsidiaries</p>
                                 <p className="hidden lg:flex  md:hidden text-xs lg:text-lg text-white hover:text-white/50 duration-500 hover:cursor-pointer">Insights</p>
                                 <p className="hidden lg:flex md:hidden text-xs lg:text-lg text-white hover:text-white/50 duration-500 hover:cursor-pointer whitespace-nowrap">Contact Us</p>
                             </div>
