@@ -11,6 +11,7 @@ import DDFormField from "./ddformfield";
 import TFFormField from "./tfformfield";
 import OPFormField from "./openposform";
 import UDFormfield from "./UDformfield";
+import axios from "axios";
 
 export const dependent_inputs = ['language', 'level', 'xtralang']
 
@@ -51,7 +52,6 @@ const defaultFormState = {
             position: ''
 }
 
-
 const AppForm = () => {
     const [isHidden, setIsHidden] = useState(true);
     const [selectedPos, setSelectedPos] = useState("");
@@ -77,7 +77,8 @@ const AppForm = () => {
 
     console.log('errors', errors)
 
-    const onSubmit: SubmitHandler<applicationInputs> = (data) => {
+    //place the api call in the submit handler
+    const onSubmit: SubmitHandler<applicationInputs> = async(data) => {
         console.log(errors)
         console.log(data.position)
         console.log(data.fname)
@@ -95,9 +96,11 @@ const AppForm = () => {
         console.log(data.checked)
         console.log(data.email)
         console.log(data.upload)
+        //call your API function like an endpoint her eover HTTP
+        const resp = await axios.post('/api/email', data)
+        console.log('Mail sent:', resp.data)
         reset()
     }
-
 
     return(
         <div className="p-4">

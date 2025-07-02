@@ -13,7 +13,7 @@ export const TextInputSchema = yup.object({
     idnum: yup.string().required("id number is required").max(20),
     residence: yup.string().required("residence is required").max(20),
     phonenum: yup.string().matches(/^\d+$/, 'Must contain only numbers').required("phone number is required").max(10).min(10), //phone number format validatin
-    email: yup.string().email().required("email is required").max(20), //check if its in email format
+    email: yup.string().email().required("email is required").max(60), //check if its in email format
     checked: yup.boolean().required().oneOf([true], 'You must accept the terms'),
     upload: yup.string().required("please upload document"),
     position: yup.string().required()
